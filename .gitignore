@@ -30,7 +30,7 @@ packages/
 *.keystore
 *.jks
 
-## Secrets (protect yourself later)
+## Secrets
 appsettings.json
 appsettings.Development.json
 secrets.json
