@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="CampusMind.Data/CampusMind.Data.csproj" Id="cb8245a6-699b-4960-b18f-e88a12a0405a" />
+  <Project Path="CampusMind.Logic/CampusMind.Logic.csproj" Id="eb112273-11d5-4f76-ae1c-71d460fe1002" />
+  <Project Path="CampusMind.UI/CampusMind.UI.csproj">
+    <Deploy Solution="Debug|*" />
+  </Project>
+</Solution>

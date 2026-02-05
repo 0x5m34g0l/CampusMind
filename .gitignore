@@ -1,0 +1,36 @@
+## Build results
+bin/
+obj/
+
+## Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Rider / VSCode
+.idea/
+.vscode/
+
+## OS
+.DS_Store
+Thumbs.db
+
+## Logs
+*.log
+
+## NuGet
+packages/
+*.nupkg
+
+## MAUI / Android
+*.apk
+*.aab
+*.keystore
+*.jks
+
+## Secrets (protect yourself later)
+appsettings.json
+appsettings.Development.json
+secrets.json
