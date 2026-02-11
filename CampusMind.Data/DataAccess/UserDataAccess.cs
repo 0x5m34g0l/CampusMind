@@ -15,7 +15,7 @@ namespace CampusMind.Data.DataAccess
             // this value will be returned if the user is not found
             int userID = -1;
 
-            SqlConnection connection = new SqlConnection(DataAccessSettings.connectionString);
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
             // my question here will the date be automaitaclly updated?
             string query = @"INSERT INTO Users (Email,PasswordHash,Name)
