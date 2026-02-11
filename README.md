@@ -8,31 +8,31 @@ The project follows a clear **3-tier architecture (UI → Logic → Data)** and 
 
 ---
 
-## 🚀 Planned Features
+## Planned Features
 
-- **Course Explainer** — AI explanations of study topics  
-- **Policy Assistant** — Ask university regulations and rules  
-- **Study Planner** — Generate study schedules  
-- **File Converter** — Utility tools for students  
+- **Course Explainer**: AI explanations of study topics  
+- **Policy Assistant**: Ask university regulations and rules  
+- **Study Planner**: Generate study schedules  
+- **File Converter**: Utility tools for students  
 
 ---
 
-## 🛠 Technologies
+## Technologies
 
-- **.NET MAUI** — Mobile UI
+- **.NET MAUI**: Mobile UI
 - **C# (.NET)**
 - **SQL Server**
 - **OpenAI API** *(planned)*
 
 ---
 
-## 🎯 Project Goal
+## Project Goal
 
 This repository documents the full development process step-by-step while focusing on understanding architecture, design decisions, and engineering practices rather than simply building features.
 
 ---
 
-## 📚 Development Philosophy
+## Development Philosophy
 
 This project is being built as an engineering learning journey:
 
