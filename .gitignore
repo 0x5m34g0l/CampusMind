@@ -1,34 +1,30 @@
-# secrets
-dbsettings.json
-
-# build
+# Build
 bin/
 obj/
+out/
 
-# visual studio
+# Visual Studio
 .vs/
 *.user
 *.suo
-*.userosscache
-*.sln.docstates
 
-# Rider / VSCode
+# Rider
 .idea/
-.vscode/
 
-# OS
-Thumbs.db
-.DS_Store
-
-# logs
-*.log
-
-# NuGet
-packages/
-*.nupkg
-
-# MAUI / Android
+# MAUI / Android / Windows build junk
 *.apk
 *.aab
-*.keystore
-*.jks
+*.appx
+*.msix
+*.msixbundle
+
+# Logs
+*.log
+
+# Local config
+dbsettings.json
+appsettings.Development.json
+
+# OS
+.DS_Store
+Thumbs.db

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CampusMind.Logic.Models
+namespace CampusMind.Logic.Core
 {
     internal class Conversation
     {
