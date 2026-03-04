@@ -6,7 +6,31 @@ using System.Threading.Tasks;
 
 namespace CampusMind.Logic1.Core
 {
-    internal class Conversation
+    public enum enToolType
     {
+        CourseExplainer = 1,
+        PolicyAssistant = 2,
+        StudyPlanner = 3,
+        FileConverter = 4
+    }
+    public class Conversation
+    {
+        public int Id { get; set; }
+        public enToolType ToolType { get; set; }
+        public string Title { get; set; } 
+        public int UserId { get; set; }
+
+        public Conversation()
+        {
+
+        }
+
+        public Conversation(int id, enToolType toolType, string title, int userId)
+        {
+            Id = id;
+            ToolType = toolType;
+            Title = title;
+            UserId = userId;
+        }
     }
 }
