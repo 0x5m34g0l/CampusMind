@@ -9,7 +9,7 @@ using CampusMind.Data1.Database;
 
 namespace CampusMind.Data1.DataAccess
 {
-    public class UserDataAccess
+    public static class UserDataAccess
     {
 
 
@@ -101,5 +101,9 @@ namespace CampusMind.Data1.DataAccess
 
 
         }
+
+
+       // static bool UpdateUser();
+       // static bool DeleteUser();
     }
 }

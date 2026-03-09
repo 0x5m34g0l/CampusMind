@@ -14,7 +14,7 @@ namespace CampusMind.Logic1.Core
     {
         public int Id { get; set; }
         public enRole Role { get; set; }
-        public string Content { get; set; } 
+        public string Content { get; set; }     
         public int ConversationId { get; set; }
 
         public Message() { }
