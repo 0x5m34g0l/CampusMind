@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CampusMind.Logic1.Services
+﻿namespace CampusMind.Logic1.Services
 {
-    internal class AiService
+    public static class AiService
     {
+
+        public static string AskAI(string userMessage)
+        {
+            // placeholder for AI API call
+
+            return "AI response placeholder";
+        }
+
     }
 }
