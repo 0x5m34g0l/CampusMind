@@ -8,7 +8,7 @@ namespace CampusMind.Data1.DataAccess
     public static class MessageDataAccess
     {
 
-        static int Create(int conversationId, int role, string content)
+        public static int Create(int conversationId, int role, string content)
         {
             int messageId = -1;
 
@@ -45,7 +45,7 @@ namespace CampusMind.Data1.DataAccess
         }
 
 
-        static bool GetMessageById(int messageId, ref int role, ref string content, ref int conversationId)
+        public static bool GetMessageById(int messageId, ref int role, ref string content, ref int conversationId)
         {
             bool isFound = false;
 
@@ -87,7 +87,7 @@ namespace CampusMind.Data1.DataAccess
         }
 
 
-        static List<int> GetMessagesByConversationId(int conversationId)
+        public static List<int> GetMessagesByConversationId(int conversationId)
         {
             List<int> messageIds = new List<int>();
 
@@ -128,7 +128,7 @@ namespace CampusMind.Data1.DataAccess
         }
 
 
-        static bool GetLastMessage(int conversationId, ref int messageId, ref int role, ref string content)
+        public static bool GetLastMessage(int conversationId, ref int messageId, ref int role, ref string content)
         {
             bool isFound = false;
 
@@ -173,7 +173,7 @@ namespace CampusMind.Data1.DataAccess
         }
 
 
-        static bool DeleteByConversationId(int conversationId)
+        public static bool DeleteByConversationId(int conversationId)
         {
             int rowsAffected = 0;
 

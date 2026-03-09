@@ -13,7 +13,7 @@ namespace CampusMind.Data1.DataAccess
     public static class ConversationDataAccess
     {
 
-        static int Create(int toolType, string title, int userId)
+        public static int Create(int toolType, string title, int userId)
         {
             int conversationID = -1;
 
@@ -56,7 +56,7 @@ namespace CampusMind.Data1.DataAccess
 
         }
 
-        static bool GetConversationById(int conversationId, ref int toolType, ref string title, ref int userId)
+        public static bool GetConversationById(int conversationId, ref int toolType, ref string title, ref int userId)
         {
             bool isFound = false;
 
@@ -101,7 +101,7 @@ namespace CampusMind.Data1.DataAccess
             return isFound;
         }
 
-        static  bool UpdateTitle(int conversationId, string newTitle)
+        public static  bool UpdateTitle(int conversationId, string newTitle)
         {
             int rowsAffected = -1;
             SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
@@ -137,7 +137,7 @@ namespace CampusMind.Data1.DataAccess
             return (rowsAffected > 0);
         }
 
-        static bool DeleteConversation(int conversationId)
+        public static bool DeleteConversation(int conversationId)
         {
             int rowsAffected = 0;
 
@@ -171,7 +171,7 @@ namespace CampusMind.Data1.DataAccess
             return (rowsAffected > 0);
         }
 
-        static List<int> GetConversationsByUserId(int userId)
+        public static List<int> GetConversationsByUserId(int userId)
         {
             List<int> conversationIds = new List<int>();
 
