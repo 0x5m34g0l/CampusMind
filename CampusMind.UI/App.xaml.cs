@@ -11,7 +11,7 @@ namespace CampusMind.UI
 
         protected override Window CreateWindow(IActivationState? activationState)
         {
-            return new Window(new NavigationPage(new Pages.AuthTestPage()));
+            return new Window(new NavigationPage(new Pages.LoginPage()));
         }
 
     }

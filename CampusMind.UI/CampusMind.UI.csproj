@@ -61,18 +61,38 @@
 
 	<!-- Folders -->
 	<ItemGroup>
-		<Folder Include="Components\" />
-		<Folder Include="ViewModels\" />
+	  <ProjectReference Include="..\CampusMind.Logic1\CampusMind.Logic1.csproj" />
 	</ItemGroup>
 	<ItemGroup>
-	  <ProjectReference Include="..\CampusMind.Logic1\CampusMind.Logic1.csproj" />
+	  <MauiXaml Update="Components\ChatBubbleAI.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Components\ChatBubbleUser.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Components\PrimaryButton.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Components\ToolCard.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\ChatPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\HomePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\LoginPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\RegisterPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\SettingsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	</ItemGroup>
 
 	<!-- XAML compile -->
-	<ItemGroup>
-		<MauiXaml Update="Pages\AuthTestPage.xaml">
-			<Generator>MSBuild:Compile</Generator>
-		</MauiXaml>
-	</ItemGroup>
 
 </Project>

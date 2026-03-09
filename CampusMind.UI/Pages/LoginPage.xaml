@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="CampusMind.UI.Pages.LoginPage"
+    BackgroundColor="#F5F6FA">
+
+    <VerticalStackLayout
+        Padding="30"
+        Spacing="25"
+        VerticalOptions="Center">
+
+        <Label
+            Text="CampusMind"
+            FontSize="34"
+            FontAttributes="Bold"
+            HorizontalOptions="Center"
+            TextColor="#7B61FF"/>
+
+        <Label
+            Text="AI Assistant for Students"
+            HorizontalOptions="Center"
+            TextColor="Gray"/>
+
+        <Frame
+            BackgroundColor="White"
+            CornerRadius="20"
+            Padding="25">
+
+            <VerticalStackLayout Spacing="20">
+
+                <Entry
+                    Placeholder="Email"
+                    BackgroundColor="#F3F4F6"
+                    HeightRequest="45"
+                    Margin="0,5"
+                    />
+
+                <Entry
+                    Placeholder="Password"
+                    IsPassword="True"
+                    BackgroundColor="#F3F4F6"
+                    HeightRequest="45"
+                    Margin="0,5"
+                    />
+
+                <Button
+                    Text="Login"
+                    BackgroundColor="#7B61FF"
+                    TextColor="White"
+                    CornerRadius="10"
+                    HeightRequest="45"/>
+
+                <HorizontalStackLayout
+                    HorizontalOptions="Center">
+
+                    <Label Text="Don't have an account?"/>
+
+                    <Label
+                        Text=" Register"
+                        TextColor="#7B61FF"/>
+
+                </HorizontalStackLayout>
+
+            </VerticalStackLayout>
+
+        </Frame>
+
+    </VerticalStackLayout>
+
+</ContentPage>

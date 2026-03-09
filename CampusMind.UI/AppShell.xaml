@@ -1,14 +1,36 @@
-<?xml version="1.0" encoding="UTF-8" ?>
 <Shell
     x:Class="CampusMind.UI.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:CampusMind.UI"
-    Title="CampusMind.UI">
+    xmlns:pages="clr-namespace:CampusMind.UI.Pages">
+
+    <!-- Auth Pages -->
+    <ShellContent
+        Route="login"
+        ContentTemplate="{DataTemplate pages:LoginPage}" />
 
     <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+        Route="register"
+        ContentTemplate="{DataTemplate pages:RegisterPage}" />
+
+    <!-- Main App -->
+    <TabBar>
+
+        <ShellContent
+            Title="Home"
+            Icon="home.png"
+            ContentTemplate="{DataTemplate pages:HomePage}" />
+
+        <ShellContent
+            Title="Chat"
+            Icon="chat.png"
+            ContentTemplate="{DataTemplate pages:ChatPage}" />
+
+        <ShellContent
+            Title="Settings"
+            Icon="settings.png"
+            ContentTemplate="{DataTemplate pages:SettingsPage}" />
+
+    </TabBar>
 
 </Shell>
