@@ -41,3 +41,22 @@ Windows account was not mapped to database user.
 
 Fix:
 I just used the connection string in the right way. I put the correct name of the server, ex: "Server=CorrectName;..." instead of "Server=.;..."
+
+# MAUI Chat UI Scroll Deadlock
+Issue:
+The chat page would freeze or terminate before reaching the AI request.
+
+Cause:
+ScrollToBottom() was awaited inside the UI thread, which caused a MAUI UI deadlock.
+
+Fix:
+Implemented a SafeScroll() method that runs scrolling asynchronously on the main thread.
+This prevents blocking the message pipeline.
+# AI Response Rendering
+Improvement:
+Added a helper to clean markdown returned by the AI model.
+
+Implementation:
+- Installed Markdig
+- Created MarkdownHelper
+- Converted AI markdown responses into clean text before rendering in the chat bubbles.
