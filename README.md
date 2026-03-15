@@ -22,7 +22,7 @@ The project follows a clear **3-tier architecture (UI → Logic → Data)** and 
 - **.NET MAUI**: Mobile UI
 - **C# (.NET)**
 - **SQL Server**
-- **OpenAI API** *(planned)*
+- **OpenRouter API**
 
 ---
 
