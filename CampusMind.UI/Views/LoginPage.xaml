@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CampusMind.UI.Views.LoginPage"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="{StaticResource BackgroundColor}">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="0">
+
+            <!-- ═══ HERO HEADER ═══ -->
+            <Grid HeightRequest="320">
+                <BoxView>
+                    <BoxView.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="#4F46E5" Offset="0"/>
+                            <GradientStop Color="#3730A3" Offset="1"/>
+                        </LinearGradientBrush>
+                    </BoxView.Background>
+                </BoxView>
+
+                <!-- Decorative Circles -->
+                <Ellipse WidthRequest="200" HeightRequest="200"
+                         HorizontalOptions="End" VerticalOptions="Start"
+                         Margin="0,-60,-60,0" Opacity="0.1"
+                         Fill="White"/>
+                <Ellipse WidthRequest="140" HeightRequest="140"
+                         HorizontalOptions="Start" VerticalOptions="End"
+                         Margin="-40,0,0,-40" Opacity="0.08"
+                         Fill="White"/>
+
+                <!-- Logo + Title -->
+                <VerticalStackLayout HorizontalOptions="Center"
+                                     VerticalOptions="Center"
+                                     Spacing="12">
+                    <Frame WidthRequest="90" HeightRequest="90"
+                           CornerRadius="28"
+                           BackgroundColor="#FFFFFF20"
+                           BorderColor="#FFFFFF40"
+                           Padding="0"
+                           HorizontalOptions="Center"
+                           HasShadow="False">
+                        <Image Source="owl_logo.png"
+                               WidthRequest="58" HeightRequest="58"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"/>
+                    </Frame>
+
+                    <Label Text="CampusMind"
+                           FontSize="32" FontAttributes="Bold"
+                           TextColor="White"
+                           HorizontalOptions="Center"/>
+
+                    <Label Text="Your AI University Companion"
+                           FontSize="15" TextColor="#FFFFFFCC"
+                           HorizontalOptions="Center"/>
+                </VerticalStackLayout>
+            </Grid>
+
+            <!-- ═══ FORM CARD ═══ -->
+            <Frame Style="{StaticResource CardFrame}"
+                   Margin="20,-30,20,0" Padding="24">
+                <VerticalStackLayout Spacing="18">
+
+                    <Label Text="Welcome Back 👋"
+                           FontSize="22" FontAttributes="Bold"
+                           TextColor="{StaticResource TextPrimary}"/>
+
+                    <Label Text="Sign in to continue"
+                           Style="{StaticResource BodyLabel}"
+                           Margin="0,-10,0,0"/>
+
+                    <!-- Email -->
+                    <Frame Style="{StaticResource InputFrame}">
+                        <Grid ColumnDefinitions="Auto,*" ColumnSpacing="10">
+                            <Label Grid.Column="0" Text="✉️"
+                                   FontSize="18" VerticalOptions="Center"/>
+                            <Entry Grid.Column="1"
+                                   x:Name="EmailEntry"
+                                   Placeholder="University Email"
+                                   Keyboard="Email"
+                                   Style="{StaticResource InputEntry}"/>
+                        </Grid>
+                    </Frame>
+
+                    <!-- Password -->
+                    <Frame Style="{StaticResource InputFrame}">
+                        <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="10">
+                            <Label Grid.Column="0" Text="🔒"
+                                   FontSize="18" VerticalOptions="Center"/>
+                            <Entry Grid.Column="1"
+                                   x:Name="PasswordEntry"
+                                   Placeholder="Password"
+                                   IsPassword="True"
+                                   Style="{StaticResource InputEntry}"/>
+                            <Label Grid.Column="2"
+                                   x:Name="TogglePasswordLabel"
+                                   Text="👁"
+                                   FontSize="18"
+                                   VerticalOptions="Center">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnTogglePassword"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </Grid>
+                    </Frame>
+
+                    <!-- Error Label -->
+                    <Label x:Name="ErrorLabel"
+                           TextColor="{StaticResource ErrorColor}"
+                           FontSize="13"
+                           IsVisible="False"
+                           HorizontalOptions="Center"/>
+
+                    <!-- Login Button -->
+                    <Button x:Name="LoginButton"
+                            Text="Sign In"
+                            Style="{StaticResource PrimaryButton}"
+                            Clicked="OnLoginClicked"/>
+
+                    <!-- Loading -->
+                    <ActivityIndicator x:Name="LoadingIndicator"
+                                       IsRunning="False"
+                                       IsVisible="False"
+                                       Color="{StaticResource PrimaryColor}"
+                                       HorizontalOptions="Center"/>
+
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- ═══ REGISTER LINK ═══ -->
+            <HorizontalStackLayout HorizontalOptions="Center"
+                                   Margin="0,24,0,40" Spacing="4">
+                <Label Text="Don't have an account?"
+                       Style="{StaticResource BodyLabel}"/>
+                <Label Text="Sign Up"
+                       TextColor="{StaticResource PrimaryColor}"
+                       FontAttributes="Bold" FontSize="14">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnNavigateToRegister"/>
+                    </Label.GestureRecognizers>
+                </Label>
+            </HorizontalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

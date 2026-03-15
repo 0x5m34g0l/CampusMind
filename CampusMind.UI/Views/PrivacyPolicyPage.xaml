@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CampusMind.UI.Views.PrivacyPolicyPage"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="{StaticResource BackgroundColor}">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="0">
+
+            <!-- HEADER -->
+            <Grid HeightRequest="140" Padding="20,52,20,16">
+                <Grid.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#4F46E5" Offset="0"/>
+                        <GradientStop Color="#3730A3" Offset="1"/>
+                    </LinearGradientBrush>
+                </Grid.Background>
+
+                <Label Text="Back"
+                       TextColor="White" FontSize="15"
+                       HorizontalOptions="Start" VerticalOptions="Start">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnBackClicked"/>
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <Label Text="Privacy Policy"
+                       FontSize="24" FontAttributes="Bold"
+                       TextColor="White" VerticalOptions="End"/>
+            </Grid>
+
+            <!-- CONTENT -->
+            <Frame Style="{StaticResource CardFrame}"
+                   Margin="20,-28,20,0" Padding="24">
+                <VerticalStackLayout Spacing="20">
+
+                    <Label Text="Last updated: March 2025"
+                           FontSize="12" TextColor="{StaticResource TextMuted}"/>
+
+                    <!-- Section 1 -->
+                    <VerticalStackLayout Spacing="6">
+                        <Label Text="1. Information We Collect"
+                               FontSize="16" FontAttributes="Bold"
+                               TextColor="{StaticResource TextPrimary}"/>
+                        <Label Text="CampusMind collects only the information necessary to provide our services, including your name, university email address, and the conversations you have with the AI assistant. We do not collect sensitive personal data."
+                               FontSize="14" TextColor="{StaticResource TextSecondary}"
+                               LineBreakMode="WordWrap"/>
+                    </VerticalStackLayout>
+
+                    <BoxView Color="{StaticResource BorderColor}" HeightRequest="1"/>
+
+                    <!-- Section 2 -->
+                    <VerticalStackLayout Spacing="6">
+                        <Label Text="2. How We Use Your Data"
+                               FontSize="16" FontAttributes="Bold"
+                               TextColor="{StaticResource TextPrimary}"/>
+                        <Label Text="Your data is used solely to provide the CampusMind AI assistant service. Conversation history is stored to provide context-aware responses. We do not sell, share, or transfer your personal data to third parties."
+                               FontSize="14" TextColor="{StaticResource TextSecondary}"
+                               LineBreakMode="WordWrap"/>
+                    </VerticalStackLayout>
+
+                    <BoxView Color="{StaticResource BorderColor}" HeightRequest="1"/>
+
+                    <!-- Section 3 -->
+                    <VerticalStackLayout Spacing="6">
+                        <Label Text="3. Data Storage"
+                               FontSize="16" FontAttributes="Bold"
+                               TextColor="{StaticResource TextPrimary}"/>
+                        <Label Text="All data is stored locally in a secure SQL Server database. Your password is encrypted using industry-standard hashing algorithms and is never stored in plain text."
+                               FontSize="14" TextColor="{StaticResource TextSecondary}"
+                               LineBreakMode="WordWrap"/>
+                    </VerticalStackLayout>
+
+                    <BoxView Color="{StaticResource BorderColor}" HeightRequest="1"/>
+
+                    <!-- Section 4 -->
+                    <VerticalStackLayout Spacing="6">
+                        <Label Text="4. Third-Party AI Services"
+                               FontSize="16" FontAttributes="Bold"
+                               TextColor="{StaticResource TextPrimary}"/>
+                        <Label Text="CampusMind uses OpenRouter API to process AI requests. Messages sent to the AI are subject to OpenRouter's privacy policy. Please review their terms at openrouter.ai."
+                               FontSize="14" TextColor="{StaticResource TextSecondary}"
+                               LineBreakMode="WordWrap"/>
+                    </VerticalStackLayout>
+
+                    <BoxView Color="{StaticResource BorderColor}" HeightRequest="1"/>
+
+                    <!-- Section 5 -->
+                    <VerticalStackLayout Spacing="6">
+                        <Label Text="5. Your Rights"
+                               FontSize="16" FontAttributes="Bold"
+                               TextColor="{StaticResource TextPrimary}"/>
+                        <Label Text="You have the right to access, modify, or delete your personal data at any time. You may delete your account and all associated data by contacting the app administrator."
+                               FontSize="14" TextColor="{StaticResource TextSecondary}"
+                               LineBreakMode="WordWrap"/>
+                    </VerticalStackLayout>
+
+                    <BoxView Color="{StaticResource BorderColor}" HeightRequest="1"/>
+
+                    <Label Text="By using CampusMind, you agree to this Privacy Policy."
+                           FontSize="13" TextColor="{StaticResource TextMuted}"
+                           HorizontalOptions="Center"
+                           LineBreakMode="WordWrap"/>
+
+                </VerticalStackLayout>
+            </Frame>
+
+            <BoxView HeightRequest="40" Color="Transparent"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

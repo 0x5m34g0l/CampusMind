@@ -102,8 +102,41 @@ namespace CampusMind.Data1.DataAccess
 
         }
 
+        public static bool UpdatePassword(int userId, string newPasswordHash)
+        {
+            int rowsAffected = 0;
 
-       // static bool UpdateUser();
-       // static bool DeleteUser();
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
+
+            string query = @"UPDATE Users
+                     SET PasswordHash = @PasswordHash
+                     WHERE UserID = @UserID";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@PasswordHash", newPasswordHash);
+            command.Parameters.AddWithValue("@UserID", userId);
+
+            try
+            {
+                connection.Open();
+
+                rowsAffected = command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("SQL error: " + ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return rowsAffected > 0;
+        }
+
+
+        // static bool UpdateUser();
+        // static bool DeleteUser();
     }
 }

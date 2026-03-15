@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CampusMind.UI.Views.HomePage"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="{StaticResource BackgroundColor}">
+
+    <Grid RowDefinitions="*,70">
+
+        <ScrollView Grid.Row="0">
+            <VerticalStackLayout Spacing="0">
+
+                <!-- ═══ HEADER ═══ -->
+                <Grid HeightRequest="195" Padding="20,50,20,20">
+                    <Grid.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="#4F46E5" Offset="0"/>
+                            <GradientStop Color="#3730A3" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Grid.Background>
+
+                    <Grid ColumnDefinitions="*,Auto">
+
+                        <!-- Greeting -->
+                        <VerticalStackLayout Grid.Column="0"
+                                             VerticalOptions="Center" Spacing="3">
+                            <Label x:Name="GreetingLabel"
+                                   Text="Good Morning 👋"
+                                   FontSize="13" TextColor="#FFFFFFCC"/>
+                            <Label x:Name="UserNameLabel"
+                                   Text=""
+                                   FontSize="24" FontAttributes="Bold"
+                                   TextColor="White"/>
+                            <Label Text="What can I help you with?"
+                                   FontSize="13" TextColor="#FFFFFFAA"/>
+                        </VerticalStackLayout>
+
+                        <!-- Avatar Initials -->
+                        <Frame Grid.Column="1"
+                               WidthRequest="52" HeightRequest="52"
+                               CornerRadius="26"
+                               BackgroundColor="#FFFFFF25"
+                               BorderColor="#FFFFFF50"
+                               Padding="0"
+                               VerticalOptions="Center"
+                               HasShadow="False">
+                            <Label x:Name="AvatarLabel"
+                                   Text="?"
+                                   FontSize="20" FontAttributes="Bold"
+                                   TextColor="White"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"/>
+                        </Frame>
+                    </Grid>
+                </Grid>
+
+                <!-- ═══ STATS CARD ═══ -->
+                <Frame Style="{StaticResource CardFrame}"
+                       Margin="20,-28,20,0">
+                    <Grid ColumnDefinitions="*,1,*,1,*">
+
+                        <VerticalStackLayout Grid.Column="0"
+                                             HorizontalOptions="Center" Spacing="4">
+                            <Label Text="💬" FontSize="22" HorizontalOptions="Center"/>
+                            <Label x:Name="ConversationsCountLabel"
+                                   Text="0"
+                                   FontSize="20" FontAttributes="Bold"
+                                   TextColor="{StaticResource TextPrimary}"
+                                   HorizontalOptions="Center"/>
+                            <Label Text="Chats"
+                                   Style="{StaticResource CaptionLabel}"
+                                   HorizontalOptions="Center"/>
+                        </VerticalStackLayout>
+
+                        <BoxView Grid.Column="1"
+                                 Color="{StaticResource BorderColor}"
+                                 WidthRequest="1"/>
+
+                        <VerticalStackLayout Grid.Column="2"
+                                             HorizontalOptions="Center" Spacing="4">
+                            <Label Text="⭐" FontSize="22" HorizontalOptions="Center"/>
+                            <Label Text="4.9"
+                                   FontSize="20" FontAttributes="Bold"
+                                   TextColor="{StaticResource TextPrimary}"
+                                   HorizontalOptions="Center"/>
+                            <Label Text="Rating"
+                                   Style="{StaticResource CaptionLabel}"
+                                   HorizontalOptions="Center"/>
+                        </VerticalStackLayout>
+
+                        <BoxView Grid.Column="3"
+                                 Color="{StaticResource BorderColor}"
+                                 WidthRequest="1"/>
+
+                        <VerticalStackLayout Grid.Column="4"
+                                             HorizontalOptions="Center" Spacing="4">
+                            <Label Text="📚" FontSize="22" HorizontalOptions="Center"/>
+                            <Label Text="4"
+                                   FontSize="20" FontAttributes="Bold"
+                                   TextColor="{StaticResource TextPrimary}"
+                                   HorizontalOptions="Center"/>
+                            <Label Text="Tools"
+                                   Style="{StaticResource CaptionLabel}"
+                                   HorizontalOptions="Center"/>
+                        </VerticalStackLayout>
+
+                    </Grid>
+                </Frame>
+
+                <!-- ═══ AI TOOLS GRID ═══ -->
+                <VerticalStackLayout Margin="20,24,20,0" Spacing="14">
+                    <Label Text="AI Tools" Style="{StaticResource SectionHeader}"/>
+
+                    <Grid ColumnDefinitions="*,*"
+                          RowDefinitions="Auto,Auto"
+                          ColumnSpacing="12" RowSpacing="12">
+
+                        <!-- Course Explainer -->
+                        <Frame Grid.Row="0" Grid.Column="0"
+                               CornerRadius="18" Padding="16"
+                               BorderColor="#EEF0FF" HasShadow="False">
+                            <Frame.Background>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                    <GradientStop Color="#EEF0FF" Offset="0"/>
+                                    <GradientStop Color="#E0E7FF" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Frame.Background>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnCourseExplainerTapped"/>
+                            </Frame.GestureRecognizers>
+                            <VerticalStackLayout Spacing="8">
+                                <Label Text="🧠" FontSize="28"/>
+                                <Label Text="Course Explainer"
+                                       FontSize="14" FontAttributes="Bold"
+                                       TextColor="{StaticResource TextPrimary}"/>
+                                <Label Text="Understand any topic"
+                                       Style="{StaticResource CaptionLabel}"/>
+                            </VerticalStackLayout>
+                        </Frame>
+
+                        <!-- Policy Assistant -->
+                        <Frame Grid.Row="0" Grid.Column="1"
+                               CornerRadius="18" Padding="16"
+                               BorderColor="#FFF8E7" HasShadow="False">
+                            <Frame.Background>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                    <GradientStop Color="#FFF8E7" Offset="0"/>
+                                    <GradientStop Color="#FEF3C7" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Frame.Background>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnPolicyAssistantTapped"/>
+                            </Frame.GestureRecognizers>
+                            <VerticalStackLayout Spacing="8">
+                                <Label Text="📜" FontSize="28"/>
+                                <Label Text="Policy Assistant"
+                                       FontSize="14" FontAttributes="Bold"
+                                       TextColor="{StaticResource TextPrimary}"/>
+                                <Label Text="University policies"
+                                       Style="{StaticResource CaptionLabel}"/>
+                            </VerticalStackLayout>
+                        </Frame>
+
+                        <!-- Study Planner -->
+                        <Frame Grid.Row="1" Grid.Column="0"
+                               CornerRadius="18" Padding="16"
+                               BorderColor="#F0FDF4" HasShadow="False">
+                            <Frame.Background>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                    <GradientStop Color="#F0FDF4" Offset="0"/>
+                                    <GradientStop Color="#DCFCE7" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Frame.Background>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnStudyPlannerTapped"/>
+                            </Frame.GestureRecognizers>
+                            <VerticalStackLayout Spacing="8">
+                                <Label Text="🗓" FontSize="28"/>
+                                <Label Text="Study Planner"
+                                       FontSize="14" FontAttributes="Bold"
+                                       TextColor="{StaticResource TextPrimary}"/>
+                                <Label Text="Plan your schedule"
+                                       Style="{StaticResource CaptionLabel}"/>
+                            </VerticalStackLayout>
+                        </Frame>
+
+                        <!-- File Converter -->
+                        <Frame Grid.Row="1" Grid.Column="1"
+                               CornerRadius="18" Padding="16"
+                               BorderColor="#FFF1F2" HasShadow="False">
+                            <Frame.Background>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                    <GradientStop Color="#FFF1F2" Offset="0"/>
+                                    <GradientStop Color="#FFE4E6" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Frame.Background>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnFileConverterTapped"/>
+                            </Frame.GestureRecognizers>
+                            <VerticalStackLayout Spacing="8">
+                                <Label Text="📂" FontSize="28"/>
+                                <Label Text="File Converter"
+                                       FontSize="14" FontAttributes="Bold"
+                                       TextColor="{StaticResource TextPrimary}"/>
+                                <Label Text="Convert documents"
+                                       Style="{StaticResource CaptionLabel}"/>
+                            </VerticalStackLayout>
+                        </Frame>
+
+                    </Grid>
+                </VerticalStackLayout>
+
+                <!-- ═══ RECENT CONVERSATIONS ═══ -->
+                <VerticalStackLayout Margin="20,24,20,24" Spacing="14">
+
+                    <Label Text="Recent Chats"
+                           Style="{StaticResource SectionHeader}"/>
+
+                    <!-- Conversation List -->
+                    <VerticalStackLayout x:Name="ConversationsStack" Spacing="10"/>
+
+                    <!-- Empty State -->
+                    <VerticalStackLayout x:Name="EmptyStateView"
+                                         HorizontalOptions="Center"
+                                         Spacing="10" IsVisible="False">
+                        <Label Text="🦉" FontSize="48" HorizontalOptions="Center"/>
+                        <Label Text="No conversations yet!"
+                               FontSize="16" FontAttributes="Bold"
+                               TextColor="{StaticResource TextPrimary}"
+                               HorizontalOptions="Center"/>
+                        <Label Text="Pick a tool above to get started"
+                               Style="{StaticResource BodyLabel}"
+                               HorizontalOptions="Center"/>
+                    </VerticalStackLayout>
+
+                </VerticalStackLayout>
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- ═══ BOTTOM TAB BAR ═══ -->
+        <Grid Grid.Row="1" BackgroundColor="White"
+              ColumnDefinitions="*,*,*"
+              Padding="0,8,0,8">
+            <Grid.Shadow>
+                <Shadow Brush="#20000000" Offset="0,-4" Radius="20" Opacity="0.1"/>
+            </Grid.Shadow>
+
+            <!-- Home (active) -->
+            <VerticalStackLayout Grid.Column="0"
+                                 HorizontalOptions="Center" Spacing="3">
+                <Label Text="🏠" FontSize="22" HorizontalOptions="Center"/>
+                <Label Text="Home" FontSize="10" FontAttributes="Bold"
+                       TextColor="{StaticResource PrimaryColor}"
+                       HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+
+            <!-- Chat -->
+            <VerticalStackLayout Grid.Column="1"
+                                 HorizontalOptions="Center" Spacing="3">
+                <Label Text="💬" FontSize="22" HorizontalOptions="Center"/>
+                <Label Text="New Chat" FontSize="10"
+                       TextColor="{StaticResource TabBarInactive}"
+                       HorizontalOptions="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnNewChatTapped"/>
+                    </Label.GestureRecognizers>
+                </Label>
+            </VerticalStackLayout>
+
+            <!-- Settings -->
+            <VerticalStackLayout Grid.Column="2"
+                                 HorizontalOptions="Center" Spacing="3">
+                <Label Text="⚙️" FontSize="22" HorizontalOptions="Center"/>
+                <Label Text="Settings" FontSize="10"
+                       TextColor="{StaticResource TabBarInactive}"
+                       HorizontalOptions="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnSettingsTapped"/>
+                    </Label.GestureRecognizers>
+                </Label>
+            </VerticalStackLayout>
+        </Grid>
+
+    </Grid>
+</ContentPage>

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CampusMind.UI.Views.AboutPage"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="{StaticResource BackgroundColor}">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="0">
+
+            <!-- HEADER -->
+            <Grid HeightRequest="200" Padding="20,52,20,20">
+                <Grid.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#4F46E5" Offset="0"/>
+                        <GradientStop Color="#3730A3" Offset="1"/>
+                    </LinearGradientBrush>
+                </Grid.Background>
+
+                <Label Text="Back"
+                       TextColor="White" FontSize="15"
+                       HorizontalOptions="Start" VerticalOptions="Start">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnBackClicked"/>
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <VerticalStackLayout HorizontalOptions="Center"
+                                     VerticalOptions="Center" Spacing="10">
+                    <Frame WidthRequest="72" HeightRequest="72"
+                           CornerRadius="22"
+                           BackgroundColor="#FFFFFF20"
+                           BorderColor="#FFFFFF40"
+                           Padding="0" HorizontalOptions="Center"
+                           HasShadow="False">
+                        <Image Source="owl_logo.png"
+                               WidthRequest="46" HeightRequest="46"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"/>
+                    </Frame>
+                    <Label Text="CampusMind"
+                           FontSize="26" FontAttributes="Bold"
+                           TextColor="White" HorizontalOptions="Center"/>
+                    <Label Text="Version 1.0.0"
+                           FontSize="13" TextColor="#FFFFFFAA"
+                           HorizontalOptions="Center"/>
+                </VerticalStackLayout>
+            </Grid>
+
+            <!-- CONTENT CARD -->
+            <Frame Style="{StaticResource CardFrame}"
+                   Margin="20,-28,20,0" Padding="24">
+                <VerticalStackLayout Spacing="20">
+
+                    <!-- About -->
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="About CampusMind"
+                               FontSize="17" FontAttributes="Bold"
+                               TextColor="{StaticResource TextPrimary}"/>
+                        <Label Text="CampusMind is your AI-powered university companion, designed to help students navigate their academic journey with ease. From understanding complex topics to planning your study schedule, CampusMind is always ready to assist."
+                               FontSize="14"
+                               TextColor="{StaticResource TextSecondary}"
+                               LineBreakMode="WordWrap"/>
+                    </VerticalStackLayout>
+
+                    <BoxView Color="{StaticResource BorderColor}" HeightRequest="1"/>
+
+                    <!-- Features -->
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="Features"
+                               FontSize="17" FontAttributes="Bold"
+                               TextColor="{StaticResource TextPrimary}"/>
+
+                        <Grid ColumnDefinitions="Auto,*" ColumnSpacing="12" Margin="0,4,0,0">
+                            <Frame Grid.Column="0" WidthRequest="32" HeightRequest="32"
+                                   CornerRadius="10" BackgroundColor="#EEF0FF"
+                                   BorderColor="Transparent" Padding="0" HasShadow="False">
+                                <Label Text="AI" FontSize="10" FontAttributes="Bold"
+                                       TextColor="#4F46E5"
+                                       HorizontalOptions="Center" VerticalOptions="Center"/>
+                            </Frame>
+                            <Label Grid.Column="1" Text="AI-powered chat assistant"
+                                   FontSize="14" TextColor="{StaticResource TextSecondary}"
+                                   VerticalOptions="Center"/>
+                        </Grid>
+
+                        <Grid ColumnDefinitions="Auto,*" ColumnSpacing="12">
+                            <Frame Grid.Column="0" WidthRequest="32" HeightRequest="32"
+                                   CornerRadius="10" BackgroundColor="#DCFCE7"
+                                   BorderColor="Transparent" Padding="0" HasShadow="False">
+                                <Label Text="DB" FontSize="10" FontAttributes="Bold"
+                                       TextColor="#10B981"
+                                       HorizontalOptions="Center" VerticalOptions="Center"/>
+                            </Frame>
+                            <Label Grid.Column="1" Text="Persistent conversation memory"
+                                   FontSize="14" TextColor="{StaticResource TextSecondary}"
+                                   VerticalOptions="Center"/>
+                        </Grid>
+
+                        <Grid ColumnDefinitions="Auto,*" ColumnSpacing="12">
+                            <Frame Grid.Column="0" WidthRequest="32" HeightRequest="32"
+                                   CornerRadius="10" BackgroundColor="#FEF3C7"
+                                   BorderColor="Transparent" Padding="0" HasShadow="False">
+                                <Label Text="Uni" FontSize="9" FontAttributes="Bold"
+                                       TextColor="#F59E0B"
+                                       HorizontalOptions="Center" VerticalOptions="Center"/>
+                            </Frame>
+                            <Label Grid.Column="1" Text="University-focused AI tools (coming soon)"
+                                   FontSize="14" TextColor="{StaticResource TextSecondary}"
+                                   VerticalOptions="Center"/>
+                        </Grid>
+
+                    </VerticalStackLayout>
+
+                    <BoxView Color="{StaticResource BorderColor}" HeightRequest="1"/>
+
+                    <!-- Tech Stack -->
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="Built With"
+                               FontSize="17" FontAttributes="Bold"
+                               TextColor="{StaticResource TextPrimary}"/>
+                        <Label Text=".NET MAUI  |  C#  |  SQL Server  |  Entity Framework  |  OpenRouter API"
+                               FontSize="13" TextColor="{StaticResource TextMuted}"
+                               LineBreakMode="WordWrap"/>
+                    </VerticalStackLayout>
+
+                    <BoxView Color="{StaticResource BorderColor}" HeightRequest="1"/>
+
+                    <!-- Developer -->
+                    <VerticalStackLayout Spacing="4" HorizontalOptions="Center">
+                        <Label Text="Made with care for students"
+                               FontSize="13" TextColor="{StaticResource TextMuted}"
+                               HorizontalOptions="Center"/>
+                        <Label Text="CampusMind © 2025"
+                               FontSize="12" TextColor="{StaticResource TextMuted}"
+                               HorizontalOptions="Center"/>
+                    </VerticalStackLayout>
+
+                </VerticalStackLayout>
+            </Frame>
+
+            <BoxView HeightRequest="40" Color="Transparent"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

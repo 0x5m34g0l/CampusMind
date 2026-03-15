@@ -1,13 +1,24 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
-<ResourceDictionary
-    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <Color x:Key="PrimaryColor">#4F46E5</Color>
+    <Color x:Key="PrimaryDark">#3730A3</Color>
+    <Color x:Key="PrimaryLight">#818CF8</Color>
+    <Color x:Key="AccentColor">#F59E0B</Color>
 
-    <Color x:Key="Primary">#7B61FF</Color>
-    <Color x:Key="PrimaryDark">#5B45D6</Color>
+    <Color x:Key="BackgroundColor">#F8F7FF</Color>
+    <Color x:Key="SurfaceColor">#FFFFFF</Color>
+    <Color x:Key="CardColor">#FFFFFF</Color>
 
-    <Color x:Key="Background">#F5F6FA</Color>
-    <Color x:Key="CardBackground">#FFFFFF</Color>
+    <Color x:Key="TextPrimary">#1E1B4B</Color>
+    <Color x:Key="TextSecondary">#6B7280</Color>
+    <Color x:Key="TextMuted">#9CA3AF</Color>
+
+    <Color x:Key="SuccessColor">#10B981</Color>
+    <Color x:Key="ErrorColor">#EF4444</Color>
+    <Color x:Key="WarningColor">#F59E0B</Color>
+    <Color x:Key="BorderColor">#E5E7EB</Color>
+    <Color x:Key="TabBarInactive">#9CA3AF</Color>
 
 </ResourceDictionary>

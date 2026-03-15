@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CampusMind.UI.Views.ChatPage"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="{StaticResource BackgroundColor}">
+
+    <Grid RowDefinitions="Auto,*,Auto">
+
+        <!-- ═══ HEADER ═══ -->
+        <Grid Grid.Row="0" Padding="16,50,16,16">
+            <Grid.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#4F46E5" Offset="0"/>
+                    <GradientStop Color="#3730A3" Offset="1"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+
+            <Grid ColumnDefinitions="Auto,*,Auto">
+                <Label Grid.Column="0"
+                       Text="←" FontSize="22"
+                       TextColor="White" VerticalOptions="Center"
+                       Margin="0,0,10,0">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnBackClicked"/>
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <VerticalStackLayout Grid.Column="1"
+                                     HorizontalOptions="Center"
+                                     VerticalOptions="Center" Spacing="2">
+                    <HorizontalStackLayout HorizontalOptions="Center" Spacing="8">
+                        <Image Source="owl_logo.png"
+                               WidthRequest="26" HeightRequest="26"/>
+                        <Label x:Name="ChatTitleLabel"
+                               Text="CampusMind AI"
+                               FontSize="17" FontAttributes="Bold"
+                               TextColor="White" VerticalOptions="Center"/>
+                    </HorizontalStackLayout>
+                    <Label Text="● Online"
+                           FontSize="11" TextColor="#A5F3FC"
+                           HorizontalOptions="Center"/>
+                </VerticalStackLayout>
+
+                <Label Grid.Column="2"
+                       Text="✏️" FontSize="20"
+                       TextColor="White" VerticalOptions="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnNewChatClicked"/>
+                    </Label.GestureRecognizers>
+                </Label>
+            </Grid>
+        </Grid>
+
+        <!-- ═══ MESSAGES ═══ -->
+        <ScrollView Grid.Row="1" x:Name="MessagesScrollView">
+            <VerticalStackLayout x:Name="MessagesStack"
+                                 Padding="16,14" Spacing="14">
+
+                <!-- Welcome Bubble -->
+                <Grid ColumnDefinitions="Auto,*" ColumnSpacing="10">
+                    <Frame Grid.Column="0"
+                           WidthRequest="36" HeightRequest="36"
+                           CornerRadius="18"
+                           BackgroundColor="{StaticResource PrimaryColor}"
+                           BorderColor="Transparent"
+                           Padding="0" HasShadow="False"
+                           VerticalOptions="End">
+                        <Image Source="owl_logo.png"
+                               WidthRequest="22" HeightRequest="22"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"/>
+                    </Frame>
+                    <Frame Grid.Column="1"
+                           BackgroundColor="White"
+                           CornerRadius="18"
+                           BorderColor="{StaticResource BorderColor}"
+                           Padding="14,10" HasShadow="False"
+                           HorizontalOptions="Start"
+                           MaximumWidthRequest="280">
+                        <Label x:Name="WelcomeLabel"
+                               Text="👋 Hi! I'm CampusMind AI. How can I help you today?"
+                               FontSize="14"
+                               TextColor="{StaticResource TextPrimary}"
+                               LineBreakMode="WordWrap"/>
+                    </Frame>
+                </Grid>
+
+                <!-- Typing Indicator -->
+                <Grid x:Name="TypingIndicator"
+                      ColumnDefinitions="Auto,Auto"
+                      ColumnSpacing="10" IsVisible="False">
+                    <Frame Grid.Column="0"
+                           WidthRequest="36" HeightRequest="36"
+                           CornerRadius="18"
+                           BackgroundColor="{StaticResource PrimaryColor}"
+                           BorderColor="Transparent"
+                           Padding="0" HasShadow="False">
+                        <Image Source="owl_logo.png"
+                               WidthRequest="22" HeightRequest="22"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"/>
+                    </Frame>
+                    <Frame Grid.Column="1"
+                           BackgroundColor="White"
+                           CornerRadius="18"
+                           BorderColor="{StaticResource BorderColor}"
+                           Padding="16,12" HasShadow="False">
+                        <Label Text="● ● ●"
+                               FontSize="14"
+                               TextColor="{StaticResource TextMuted}"
+                               VerticalOptions="Center"/>
+                    </Frame>
+                </Grid>
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- ═══ INPUT BAR ═══ -->
+        <Frame Grid.Row="2"
+               BackgroundColor="White"
+               BorderColor="{StaticResource BorderColor}"
+               CornerRadius="0"
+               Padding="12,10"
+               HasShadow="False">
+            <Grid ColumnDefinitions="*,Auto" ColumnSpacing="10">
+
+                <Frame Grid.Column="0"
+                       BackgroundColor="#F3F4F6"
+                       CornerRadius="24"
+                       BorderColor="Transparent"
+                       Padding="16,0"
+                       HeightRequest="48"
+                       HasShadow="False">
+                    <Entry x:Name="MessageEntry"
+                           Placeholder="Ask CampusMind..."
+                           PlaceholderColor="{StaticResource TextMuted}"
+                           TextColor="{StaticResource TextPrimary}"
+                           FontSize="14"
+                           BackgroundColor="Transparent"
+                           VerticalOptions="Center"/>
+                </Frame>
+
+                <!-- Send Button -->
+                <Frame Grid.Column="1"
+                       WidthRequest="48" HeightRequest="48"
+                       CornerRadius="24" Padding="0"
+                       BorderColor="Transparent" HasShadow="False">
+                    <Frame.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="#4F46E5" Offset="0"/>
+                            <GradientStop Color="#3730A3" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Frame.Background>
+                    <Label Text="➤"
+                           FontSize="18"
+                           TextColor="White"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnSendMessage"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </Frame>
+
+            </Grid>
+        </Frame>
+
+    </Grid>
+</ContentPage>

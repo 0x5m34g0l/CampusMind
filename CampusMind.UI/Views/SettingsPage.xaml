@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CampusMind.UI.Views.SettingsPage"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="{StaticResource BackgroundColor}">
+
+    <Grid RowDefinitions="*,70">
+
+        <ScrollView Grid.Row="0">
+            <VerticalStackLayout Spacing="0">
+
+                <!-- HEADER — "Settings" pushed higher with Padding="20,58,20,16" -->
+                <Grid HeightRequest="130" Padding="20,58,20,16">
+                    <Grid.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="#4F46E5" Offset="0"/>
+                            <GradientStop Color="#3730A3" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Grid.Background>
+                    <Label Text="Settings"
+                           FontSize="26" FontAttributes="Bold"
+                           TextColor="White" VerticalOptions="Start"/>
+                </Grid>
+
+                <VerticalStackLayout Margin="20,0,20,24" Spacing="0">
+
+                    <!-- PROFILE CARD -->
+                    <Frame Style="{StaticResource CardFrame}"
+                           Margin="0,-28,0,24">
+                        <Grid ColumnDefinitions="Auto,*" ColumnSpacing="14">
+                            <Frame Grid.Column="0"
+                                   WidthRequest="60" HeightRequest="60"
+                                   CornerRadius="20" Padding="0"
+                                   BorderColor="Transparent" HasShadow="False">
+                                <Frame.Background>
+                                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                        <GradientStop Color="#4F46E5" Offset="0"/>
+                                        <GradientStop Color="#818CF8" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Frame.Background>
+                                <Label x:Name="ProfileAvatarLabel"
+                                       Text="?"
+                                       FontSize="24" FontAttributes="Bold"
+                                       TextColor="White"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center"/>
+                            </Frame>
+                            <VerticalStackLayout Grid.Column="1"
+                                                 VerticalOptions="Center" Spacing="3">
+                                <Label x:Name="ProfileNameLabel"
+                                       Text=""
+                                       FontSize="17" FontAttributes="Bold"
+                                       TextColor="{StaticResource TextPrimary}"/>
+                                <Label x:Name="ProfileEmailLabel"
+                                       Text=""
+                                       FontSize="13"
+                                       TextColor="{StaticResource TextSecondary}"/>
+                                <Frame BackgroundColor="#EEF0FF"
+                                       CornerRadius="8"
+                                       BorderColor="Transparent"
+                                       Padding="6,3"
+                                       HorizontalOptions="Start"
+                                       HasShadow="False">
+                                    <Label Text="Student"
+                                           FontSize="11"
+                                           TextColor="{StaticResource PrimaryColor}"
+                                           FontAttributes="Bold"/>
+                                </Frame>
+                            </VerticalStackLayout>
+                        </Grid>
+                    </Frame>
+
+                    <!-- PREFERENCES SECTION -->
+                    <Label Text="Preferences"
+                           Style="{StaticResource SectionHeader}"
+                           Margin="0,0,0,12"/>
+
+                    <Frame Style="{StaticResource CardFrame}" Margin="0,0,0,20">
+                        <VerticalStackLayout Spacing="0">
+
+                            <!-- Notifications -->
+                            <Grid ColumnDefinitions="Auto,*,Auto"
+                                  ColumnSpacing="14" Padding="0,12">
+                                <Frame Grid.Column="0"
+                                       WidthRequest="38" HeightRequest="38"
+                                       CornerRadius="12"
+                                       BackgroundColor="#FEF3C7"
+                                       BorderColor="Transparent"
+                                       Padding="0" HasShadow="False">
+                                    <Label Text="Bell" FontSize="14"
+                                           TextColor="#F59E0B" FontAttributes="Bold"
+                                           HorizontalOptions="Center"
+                                           VerticalOptions="Center"/>
+                                </Frame>
+                                <Label Grid.Column="1" Text="Notifications"
+                                       FontSize="15" FontAttributes="Bold"
+                                       TextColor="{StaticResource TextPrimary}"
+                                       VerticalOptions="Center"/>
+                                <Switch Grid.Column="2"
+                                        OnColor="{StaticResource PrimaryColor}"
+                                        IsToggled="True"
+                                        VerticalOptions="Center"/>
+                            </Grid>
+
+                            <BoxView Color="{StaticResource BorderColor}"
+                                     HeightRequest="1" Margin="52,0,0,0"/>
+
+                            <!-- Sound -->
+                            <Grid ColumnDefinitions="Auto,*,Auto"
+                                  ColumnSpacing="14" Padding="0,12">
+                                <Frame Grid.Column="0"
+                                       WidthRequest="38" HeightRequest="38"
+                                       CornerRadius="12"
+                                       BackgroundColor="#DCFCE7"
+                                       BorderColor="Transparent"
+                                       Padding="0" HasShadow="False">
+                                    <Label Text="Sound" FontSize="11"
+                                           TextColor="#10B981" FontAttributes="Bold"
+                                           HorizontalOptions="Center"
+                                           VerticalOptions="Center"/>
+                                </Frame>
+                                <Label Grid.Column="1" Text="Sound Effects"
+                                       FontSize="15" FontAttributes="Bold"
+                                       TextColor="{StaticResource TextPrimary}"
+                                       VerticalOptions="Center"/>
+                                <Switch Grid.Column="2"
+                                        OnColor="{StaticResource PrimaryColor}"
+                                        IsToggled="True"
+                                        VerticalOptions="Center"/>
+                            </Grid>
+
+                            <BoxView Color="{StaticResource BorderColor}"
+                                     HeightRequest="1" Margin="52,0,0,0"/>
+
+                            <!-- Dark Mode — NEW -->
+                            <Grid ColumnDefinitions="Auto,*,Auto"
+                                  ColumnSpacing="14" Padding="0,12">
+                                <Frame Grid.Column="0"
+                                       WidthRequest="38" HeightRequest="38"
+                                       CornerRadius="12"
+                                       BackgroundColor="#E0E7FF"
+                                       BorderColor="Transparent"
+                                       Padding="0" HasShadow="False">
+                                    <Label Text="Dark" FontSize="11"
+                                           TextColor="#4F46E5" FontAttributes="Bold"
+                                           HorizontalOptions="Center"
+                                           VerticalOptions="Center"/>
+                                </Frame>
+                                <VerticalStackLayout Grid.Column="1"
+                                                     VerticalOptions="Center" Spacing="1">
+                                    <Label Text="Dark Mode"
+                                           FontSize="15" FontAttributes="Bold"
+                                           TextColor="{StaticResource TextPrimary}"/>
+                                    <Label Text="Coming soon"
+                                           FontSize="11"
+                                           TextColor="{StaticResource TextMuted}"/>
+                                </VerticalStackLayout>
+                                <Switch Grid.Column="2"
+                                        x:Name="DarkModeSwitch"
+                                        OnColor="{StaticResource PrimaryColor}"
+                                        IsToggled="False"
+                                        IsEnabled="False"
+                                        VerticalOptions="Center"/>
+                            </Grid>
+
+                        </VerticalStackLayout>
+                    </Frame>
+
+                    <!-- ACCOUNT SECTION -->
+                    <Label Text="Account"
+                           Style="{StaticResource SectionHeader}"
+                           Margin="0,0,0,12"/>
+
+                    <Frame Style="{StaticResource CardFrame}" Margin="0,0,0,24">
+                        <VerticalStackLayout Spacing="0">
+
+                            <!-- Change Password -->
+                            <Grid ColumnDefinitions="Auto,*,Auto"
+                                  ColumnSpacing="14" Padding="0,12">
+                                <Frame Grid.Column="0"
+                                       WidthRequest="38" HeightRequest="38"
+                                       CornerRadius="12"
+                                       BackgroundColor="#FFE4E6"
+                                       BorderColor="Transparent"
+                                       Padding="0" HasShadow="False">
+                                    <Label Text="Key" FontSize="13"
+                                           TextColor="#EF4444" FontAttributes="Bold"
+                                           HorizontalOptions="Center"
+                                           VerticalOptions="Center"/>
+                                </Frame>
+                                <Label Grid.Column="1" Text="Change Password"
+                                       FontSize="15" FontAttributes="Bold"
+                                       TextColor="{StaticResource TextPrimary}"
+                                       VerticalOptions="Center"/>
+                                <Label Grid.Column="2" Text="›"
+                                       FontSize="22"
+                                       TextColor="{StaticResource TextMuted}"
+                                       VerticalOptions="Center">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnChangePasswordTapped"/>
+                                    </Label.GestureRecognizers>
+                                </Label>
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnChangePasswordTapped"/>
+                                </Grid.GestureRecognizers>
+                            </Grid>
+
+                            <BoxView Color="{StaticResource BorderColor}"
+                                     HeightRequest="1" Margin="52,0,0,0"/>
+
+                            <!-- Privacy Policy -->
+                            <Grid ColumnDefinitions="Auto,*,Auto"
+                                  ColumnSpacing="14" Padding="0,12">
+                                <Frame Grid.Column="0"
+                                       WidthRequest="38" HeightRequest="38"
+                                       CornerRadius="12"
+                                       BackgroundColor="#EEF0FF"
+                                       BorderColor="Transparent"
+                                       Padding="0" HasShadow="False">
+                                    <Label Text="Privacy" FontSize="9"
+                                           TextColor="#4F46E5" FontAttributes="Bold"
+                                           HorizontalOptions="Center"
+                                           VerticalOptions="Center"/>
+                                </Frame>
+                                <Label Grid.Column="1" Text="Privacy Policy"
+                                       FontSize="15" FontAttributes="Bold"
+                                       TextColor="{StaticResource TextPrimary}"
+                                       VerticalOptions="Center"/>
+                                <Label Grid.Column="2" Text="›"
+                                       FontSize="22"
+                                       TextColor="{StaticResource TextMuted}"
+                                       VerticalOptions="Center">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnPrivacyPolicyTapped"/>
+                                    </Label.GestureRecognizers>
+                                </Label>
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnPrivacyPolicyTapped"/>
+                                </Grid.GestureRecognizers>
+                            </Grid>
+
+                            <BoxView Color="{StaticResource BorderColor}"
+                                     HeightRequest="1" Margin="52,0,0,0"/>
+
+                            <!-- About CampusMind -->
+                            <Grid ColumnDefinitions="Auto,*,Auto"
+                                  ColumnSpacing="14" Padding="0,12">
+                                <Frame Grid.Column="0"
+                                       WidthRequest="38" HeightRequest="38"
+                                       CornerRadius="12"
+                                       BackgroundColor="#F0FDF4"
+                                       BorderColor="Transparent"
+                                       Padding="0" HasShadow="False">
+                                    <Label Text="Info" FontSize="12"
+                                           TextColor="#10B981" FontAttributes="Bold"
+                                           HorizontalOptions="Center"
+                                           VerticalOptions="Center"/>
+                                </Frame>
+                                <Label Grid.Column="1" Text="About CampusMind"
+                                       FontSize="15" FontAttributes="Bold"
+                                       TextColor="{StaticResource TextPrimary}"
+                                       VerticalOptions="Center"/>
+                                <Label Grid.Column="2" Text="›"
+                                       FontSize="22"
+                                       TextColor="{StaticResource TextMuted}"
+                                       VerticalOptions="Center">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnAboutTapped"/>
+                                    </Label.GestureRecognizers>
+                                </Label>
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnAboutTapped"/>
+                                </Grid.GestureRecognizers>
+                            </Grid>
+
+                        </VerticalStackLayout>
+                    </Frame>
+
+                    <!-- LOGOUT BUTTON -->
+                    <Button Text="Sign Out"
+                            BackgroundColor="#FFF1F2"
+                            TextColor="#EF4444"
+                            FontSize="16" FontAttributes="Bold"
+                            CornerRadius="14" HeightRequest="54"
+                            Clicked="OnLogoutClicked"/>
+
+                </VerticalStackLayout>
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- BOTTOM TAB BAR -->
+        <Grid Grid.Row="1" BackgroundColor="White"
+              ColumnDefinitions="*,*,*"
+              Padding="0,8,0,8">
+            <Grid.Shadow>
+                <Shadow Brush="#20000000" Offset="0,-4" Radius="20" Opacity="0.1"/>
+            </Grid.Shadow>
+
+            <VerticalStackLayout Grid.Column="0"
+                                 HorizontalOptions="Center" Spacing="3">
+                <Label Text="Home" FontSize="20" HorizontalOptions="Center"
+                       TextColor="{StaticResource TabBarInactive}">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnHomeTapped"/>
+                    </Label.GestureRecognizers>
+                </Label>
+                <Label Text="Home" FontSize="10"
+                       TextColor="{StaticResource TabBarInactive}"
+                       HorizontalOptions="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnHomeTapped"/>
+                    </Label.GestureRecognizers>
+                </Label>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Grid.Column="1"
+                                 HorizontalOptions="Center" Spacing="3">
+                <Label Text="Chat" FontSize="20" HorizontalOptions="Center"
+                       TextColor="{StaticResource TabBarInactive}">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnNewChatTapped"/>
+                    </Label.GestureRecognizers>
+                </Label>
+                <Label Text="New Chat" FontSize="10"
+                       TextColor="{StaticResource TabBarInactive}"
+                       HorizontalOptions="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnNewChatTapped"/>
+                    </Label.GestureRecognizers>
+                </Label>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Grid.Column="2"
+                                 HorizontalOptions="Center" Spacing="3">
+                <Label Text="Settings" FontSize="10" FontAttributes="Bold"
+                       TextColor="{StaticResource PrimaryColor}"
+                       HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+        </Grid>
+
+    </Grid>
+</ContentPage>

@@ -8,10 +8,11 @@ namespace CampusMind.Logic1.Core
 {
     public enum enToolType
     {
+        None = 0,
         CourseExplainer = 1,
         PolicyAssistant = 2,
         StudyPlanner = 3,
-        FileConverter = 4
+        FileConverter = 4,
     }
     public class Conversation
     {

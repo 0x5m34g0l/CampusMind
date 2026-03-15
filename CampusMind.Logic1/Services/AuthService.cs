@@ -41,5 +41,13 @@ namespace CampusMind.Logic1.Services
 
             return new User(id, email, storedHash, name);
         }
+
+        public static bool ChangePassword(int userId, string newPasswordPlain)
+        {
+            string newHash = PasswordHasher.Hash(newPasswordPlain);
+
+            return Data1.DataAccess.UserDataAccess.UpdatePassword(userId, newHash);
+        }
+
     }
 }
