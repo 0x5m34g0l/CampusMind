@@ -3,11 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CampusMind.UI.Views.ChatPage"
              Shell.NavBarIsVisible="False"
-             BackgroundColor="{StaticResource BackgroundColor}">
+             BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight},
+                                               Dark={StaticResource BackgroundDark}}">
 
     <Grid RowDefinitions="Auto,*,Auto">
 
-        <!-- ═══ HEADER ═══ -->
+        <!-- HEADER -->
         <Grid Grid.Row="0" Padding="16,50,16,16">
             <Grid.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
@@ -17,14 +18,19 @@
             </Grid.Background>
 
             <Grid ColumnDefinitions="Auto,*,Auto">
-                <Label Grid.Column="0"
-                       Text="←" FontSize="22"
-                       TextColor="White" VerticalOptions="Center"
-                       Margin="0,0,10,0">
-                    <Label.GestureRecognizers>
+                <Grid Grid.Column="0"
+      WidthRequest="44" HeightRequest="44"
+      VerticalOptions="Center"
+      Margin="0,0,10,0">
+                    <Grid.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnBackClicked"/>
-                    </Label.GestureRecognizers>
-                </Label>
+                    </Grid.GestureRecognizers>
+                    <Label Text="←"
+           FontSize="22"
+           TextColor="White"
+           HorizontalOptions="Center"
+           VerticalOptions="Center"/>
+                </Grid>
 
                 <VerticalStackLayout Grid.Column="1"
                                      HorizontalOptions="Center"
@@ -37,13 +43,14 @@
                                FontSize="17" FontAttributes="Bold"
                                TextColor="White" VerticalOptions="Center"/>
                     </HorizontalStackLayout>
-                    <Label Text="● Online"
+                    <Label Text="Online"
                            FontSize="11" TextColor="#A5F3FC"
                            HorizontalOptions="Center"/>
                 </VerticalStackLayout>
 
                 <Label Grid.Column="2"
-                       Text="✏️" FontSize="20"
+                       Text="New" FontSize="13"
+                       FontAttributes="Bold"
                        TextColor="White" VerticalOptions="Center">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnNewChatClicked"/>
@@ -52,7 +59,7 @@
             </Grid>
         </Grid>
 
-        <!-- ═══ MESSAGES ═══ -->
+        <!-- MESSAGES -->
         <ScrollView Grid.Row="1" x:Name="MessagesScrollView">
             <VerticalStackLayout x:Name="MessagesStack"
                                  Padding="16,14" Spacing="14">
@@ -72,16 +79,19 @@
                                VerticalOptions="Center"/>
                     </Frame>
                     <Frame Grid.Column="1"
-                           BackgroundColor="White"
+                           BackgroundColor="{AppThemeBinding Light={StaticResource CardLight},
+                                                             Dark={StaticResource CardDark}}"
                            CornerRadius="18"
-                           BorderColor="{StaticResource BorderColor}"
+                           BorderColor="{AppThemeBinding Light={StaticResource BorderLight},
+                                                         Dark={StaticResource BorderDark}}"
                            Padding="14,10" HasShadow="False"
                            HorizontalOptions="Start"
                            MaximumWidthRequest="280">
                         <Label x:Name="WelcomeLabel"
-                               Text="👋 Hi! I'm CampusMind AI. How can I help you today?"
+                               Text="Hi! I'm CampusMind AI. How can I help you today?"
                                FontSize="14"
-                               TextColor="{StaticResource TextPrimary}"
+                               TextColor="{AppThemeBinding Light={StaticResource TextPrimaryLight},
+                                                           Dark={StaticResource TextPrimaryDark}}"
                                LineBreakMode="WordWrap"/>
                     </Frame>
                 </Grid>
@@ -102,13 +112,16 @@
                                VerticalOptions="Center"/>
                     </Frame>
                     <Frame Grid.Column="1"
-                           BackgroundColor="White"
+                           BackgroundColor="{AppThemeBinding Light={StaticResource CardLight},
+                                                             Dark={StaticResource CardDark}}"
                            CornerRadius="18"
-                           BorderColor="{StaticResource BorderColor}"
+                           BorderColor="{AppThemeBinding Light={StaticResource BorderLight},
+                                                         Dark={StaticResource BorderDark}}"
                            Padding="16,12" HasShadow="False">
                         <Label Text="● ● ●"
                                FontSize="14"
-                               TextColor="{StaticResource TextMuted}"
+                               TextColor="{AppThemeBinding Light={StaticResource TextMutedLight},
+                                                           Dark={StaticResource TextMutedDark}}"
                                VerticalOptions="Center"/>
                     </Frame>
                 </Grid>
@@ -116,17 +129,20 @@
             </VerticalStackLayout>
         </ScrollView>
 
-        <!-- ═══ INPUT BAR ═══ -->
+        <!-- INPUT BAR -->
         <Frame Grid.Row="2"
-               BackgroundColor="White"
-               BorderColor="{StaticResource BorderColor}"
+               BackgroundColor="{AppThemeBinding Light={StaticResource TabBarBgLight},
+                                                  Dark={StaticResource TabBarBgDark}}"
+               BorderColor="{AppThemeBinding Light={StaticResource BorderLight},
+                                             Dark={StaticResource BorderDark}}"
                CornerRadius="0"
                Padding="12,10"
                HasShadow="False">
             <Grid ColumnDefinitions="*,Auto" ColumnSpacing="10">
 
                 <Frame Grid.Column="0"
-                       BackgroundColor="#F3F4F6"
+                       BackgroundColor="{AppThemeBinding Light={StaticResource InputBgLight},
+                                                         Dark={StaticResource InputBgDark}}"
                        CornerRadius="24"
                        BorderColor="Transparent"
                        Padding="16,0"
@@ -134,8 +150,10 @@
                        HasShadow="False">
                     <Entry x:Name="MessageEntry"
                            Placeholder="Ask CampusMind..."
-                           PlaceholderColor="{StaticResource TextMuted}"
-                           TextColor="{StaticResource TextPrimary}"
+                           PlaceholderColor="{AppThemeBinding Light={StaticResource TextMutedLight},
+                                                              Dark={StaticResource TextMutedDark}}"
+                           TextColor="{AppThemeBinding Light={StaticResource TextPrimaryLight},
+                                                       Dark={StaticResource TextPrimaryDark}}"
                            FontSize="14"
                            BackgroundColor="Transparent"
                            VerticalOptions="Center"/>
@@ -152,8 +170,8 @@
                             <GradientStop Color="#3730A3" Offset="1"/>
                         </LinearGradientBrush>
                     </Frame.Background>
-                    <Label Text="➤"
-                           FontSize="18"
+                    <Label Text="Send"
+                           FontSize="12" FontAttributes="Bold"
                            TextColor="White"
                            HorizontalOptions="Center"
                            VerticalOptions="Center">

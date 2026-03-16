@@ -3,14 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CampusMind.UI.Views.SettingsPage"
              Shell.NavBarIsVisible="False"
-             BackgroundColor="{StaticResource BackgroundColor}">
+             BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight},
+                                               Dark={StaticResource BackgroundDark}}">
 
     <Grid RowDefinitions="*,70">
 
         <ScrollView Grid.Row="0">
             <VerticalStackLayout Spacing="0">
 
-                <!-- HEADER — "Settings" pushed higher with Padding="20,58,20,16" -->
+                <!-- HEADER -->
                 <Grid HeightRequest="130" Padding="20,58,20,16">
                     <Grid.Background>
                         <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
@@ -51,11 +52,13 @@
                                 <Label x:Name="ProfileNameLabel"
                                        Text=""
                                        FontSize="17" FontAttributes="Bold"
-                                       TextColor="{StaticResource TextPrimary}"/>
+                                       TextColor="{AppThemeBinding Light={StaticResource TextPrimaryLight},
+                                                                    Dark={StaticResource TextPrimaryDark}}"/>
                                 <Label x:Name="ProfileEmailLabel"
                                        Text=""
                                        FontSize="13"
-                                       TextColor="{StaticResource TextSecondary}"/>
+                                       TextColor="{AppThemeBinding Light={StaticResource TextSecondaryLight},
+                                                                    Dark={StaticResource TextSecondaryDark}}"/>
                                 <Frame BackgroundColor="#EEF0FF"
                                        CornerRadius="8"
                                        BorderColor="Transparent"
@@ -95,7 +98,8 @@
                                 </Frame>
                                 <Label Grid.Column="1" Text="Notifications"
                                        FontSize="15" FontAttributes="Bold"
-                                       TextColor="{StaticResource TextPrimary}"
+                                       TextColor="{AppThemeBinding Light={StaticResource TextPrimaryLight},
+                                                                    Dark={StaticResource TextPrimaryDark}}"
                                        VerticalOptions="Center"/>
                                 <Switch Grid.Column="2"
                                         OnColor="{StaticResource PrimaryColor}"
@@ -103,7 +107,8 @@
                                         VerticalOptions="Center"/>
                             </Grid>
 
-                            <BoxView Color="{StaticResource BorderColor}"
+                            <BoxView Color="{AppThemeBinding Light={StaticResource BorderLight},
+                                                             Dark={StaticResource BorderDark}}"
                                      HeightRequest="1" Margin="52,0,0,0"/>
 
                             <!-- Sound -->
@@ -122,7 +127,8 @@
                                 </Frame>
                                 <Label Grid.Column="1" Text="Sound Effects"
                                        FontSize="15" FontAttributes="Bold"
-                                       TextColor="{StaticResource TextPrimary}"
+                                       TextColor="{AppThemeBinding Light={StaticResource TextPrimaryLight},
+                                                                    Dark={StaticResource TextPrimaryDark}}"
                                        VerticalOptions="Center"/>
                                 <Switch Grid.Column="2"
                                         OnColor="{StaticResource PrimaryColor}"
@@ -130,10 +136,11 @@
                                         VerticalOptions="Center"/>
                             </Grid>
 
-                            <BoxView Color="{StaticResource BorderColor}"
+                            <BoxView Color="{AppThemeBinding Light={StaticResource BorderLight},
+                                                             Dark={StaticResource BorderDark}}"
                                      HeightRequest="1" Margin="52,0,0,0"/>
 
-                            <!-- Dark Mode — NEW -->
+                            <!-- Dark Mode -->
                             <Grid ColumnDefinitions="Auto,*,Auto"
                                   ColumnSpacing="14" Padding="0,12">
                                 <Frame Grid.Column="0"
@@ -151,16 +158,18 @@
                                                      VerticalOptions="Center" Spacing="1">
                                     <Label Text="Dark Mode"
                                            FontSize="15" FontAttributes="Bold"
-                                           TextColor="{StaticResource TextPrimary}"/>
+                                           TextColor="{AppThemeBinding Light={StaticResource TextPrimaryLight},
+                                                                        Dark={StaticResource TextPrimaryDark}}"/>
                                     <Label Text="Coming soon"
                                            FontSize="11"
-                                           TextColor="{StaticResource TextMuted}"/>
+                                           TextColor="{AppThemeBinding Light={StaticResource TextMutedLight},
+                                                                        Dark={StaticResource TextMutedDark}}"/>
                                 </VerticalStackLayout>
                                 <Switch Grid.Column="2"
                                         x:Name="DarkModeSwitch"
                                         OnColor="{StaticResource PrimaryColor}"
                                         IsToggled="False"
-                                        IsEnabled="False"
+                                        Toggled="OnDarkModeToggled"
                                         VerticalOptions="Center"/>
                             </Grid>
 
@@ -191,11 +200,13 @@
                                 </Frame>
                                 <Label Grid.Column="1" Text="Change Password"
                                        FontSize="15" FontAttributes="Bold"
-                                       TextColor="{StaticResource TextPrimary}"
+                                       TextColor="{AppThemeBinding Light={StaticResource TextPrimaryLight},
+                                                                    Dark={StaticResource TextPrimaryDark}}"
                                        VerticalOptions="Center"/>
                                 <Label Grid.Column="2" Text="›"
                                        FontSize="22"
-                                       TextColor="{StaticResource TextMuted}"
+                                       TextColor="{AppThemeBinding Light={StaticResource TextMutedLight},
+                                                                    Dark={StaticResource TextMutedDark}}"
                                        VerticalOptions="Center">
                                     <Label.GestureRecognizers>
                                         <TapGestureRecognizer Tapped="OnChangePasswordTapped"/>
@@ -206,7 +217,8 @@
                                 </Grid.GestureRecognizers>
                             </Grid>
 
-                            <BoxView Color="{StaticResource BorderColor}"
+                            <BoxView Color="{AppThemeBinding Light={StaticResource BorderLight},
+                                                             Dark={StaticResource BorderDark}}"
                                      HeightRequest="1" Margin="52,0,0,0"/>
 
                             <!-- Privacy Policy -->
@@ -225,11 +237,13 @@
                                 </Frame>
                                 <Label Grid.Column="1" Text="Privacy Policy"
                                        FontSize="15" FontAttributes="Bold"
-                                       TextColor="{StaticResource TextPrimary}"
+                                       TextColor="{AppThemeBinding Light={StaticResource TextPrimaryLight},
+                                                                    Dark={StaticResource TextPrimaryDark}}"
                                        VerticalOptions="Center"/>
                                 <Label Grid.Column="2" Text="›"
                                        FontSize="22"
-                                       TextColor="{StaticResource TextMuted}"
+                                       TextColor="{AppThemeBinding Light={StaticResource TextMutedLight},
+                                                                    Dark={StaticResource TextMutedDark}}"
                                        VerticalOptions="Center">
                                     <Label.GestureRecognizers>
                                         <TapGestureRecognizer Tapped="OnPrivacyPolicyTapped"/>
@@ -240,7 +254,8 @@
                                 </Grid.GestureRecognizers>
                             </Grid>
 
-                            <BoxView Color="{StaticResource BorderColor}"
+                            <BoxView Color="{AppThemeBinding Light={StaticResource BorderLight},
+                                                             Dark={StaticResource BorderDark}}"
                                      HeightRequest="1" Margin="52,0,0,0"/>
 
                             <!-- About CampusMind -->
@@ -259,11 +274,13 @@
                                 </Frame>
                                 <Label Grid.Column="1" Text="About CampusMind"
                                        FontSize="15" FontAttributes="Bold"
-                                       TextColor="{StaticResource TextPrimary}"
+                                       TextColor="{AppThemeBinding Light={StaticResource TextPrimaryLight},
+                                                                    Dark={StaticResource TextPrimaryDark}}"
                                        VerticalOptions="Center"/>
                                 <Label Grid.Column="2" Text="›"
                                        FontSize="22"
-                                       TextColor="{StaticResource TextMuted}"
+                                       TextColor="{AppThemeBinding Light={StaticResource TextMutedLight},
+                                                                    Dark={StaticResource TextMutedDark}}"
                                        VerticalOptions="Center">
                                     <Label.GestureRecognizers>
                                         <TapGestureRecognizer Tapped="OnAboutTapped"/>
@@ -290,7 +307,9 @@
         </ScrollView>
 
         <!-- BOTTOM TAB BAR -->
-        <Grid Grid.Row="1" BackgroundColor="White"
+        <Grid Grid.Row="1"
+              BackgroundColor="{AppThemeBinding Light={StaticResource TabBarBgLight},
+                                                Dark={StaticResource TabBarBgDark}}"
               ColumnDefinitions="*,*,*"
               Padding="0,8,0,8">
             <Grid.Shadow>
@@ -300,13 +319,15 @@
             <VerticalStackLayout Grid.Column="0"
                                  HorizontalOptions="Center" Spacing="3">
                 <Label Text="Home" FontSize="20" HorizontalOptions="Center"
-                       TextColor="{StaticResource TabBarInactive}">
+                       TextColor="{AppThemeBinding Light={StaticResource TabBarInactiveLight},
+                                                    Dark={StaticResource TabBarInactiveDark}}">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnHomeTapped"/>
                     </Label.GestureRecognizers>
                 </Label>
                 <Label Text="Home" FontSize="10"
-                       TextColor="{StaticResource TabBarInactive}"
+                       TextColor="{AppThemeBinding Light={StaticResource TabBarInactiveLight},
+                                                    Dark={StaticResource TabBarInactiveDark}}"
                        HorizontalOptions="Center">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnHomeTapped"/>
@@ -317,13 +338,15 @@
             <VerticalStackLayout Grid.Column="1"
                                  HorizontalOptions="Center" Spacing="3">
                 <Label Text="Chat" FontSize="20" HorizontalOptions="Center"
-                       TextColor="{StaticResource TabBarInactive}">
+                       TextColor="{AppThemeBinding Light={StaticResource TabBarInactiveLight},
+                                                    Dark={StaticResource TabBarInactiveDark}}">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnNewChatTapped"/>
                     </Label.GestureRecognizers>
                 </Label>
                 <Label Text="New Chat" FontSize="10"
-                       TextColor="{StaticResource TabBarInactive}"
+                       TextColor="{AppThemeBinding Light={StaticResource TabBarInactiveLight},
+                                                    Dark={StaticResource TabBarInactiveDark}}"
                        HorizontalOptions="Center">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnNewChatTapped"/>

@@ -3,12 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CampusMind.UI.Views.LoginPage"
              Shell.NavBarIsVisible="False"
-             BackgroundColor="{StaticResource BackgroundColor}">
+             BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight},
+                                               Dark={StaticResource BackgroundDark}}">
 
     <ScrollView>
         <VerticalStackLayout Spacing="0">
 
-            <!-- ═══ HERO HEADER ═══ -->
+            <!-- HERO HEADER -->
             <Grid HeightRequest="320">
                 <BoxView>
                     <BoxView.Background>
@@ -57,14 +58,15 @@
                 </VerticalStackLayout>
             </Grid>
 
-            <!-- ═══ FORM CARD ═══ -->
+            <!-- FORM CARD -->
             <Frame Style="{StaticResource CardFrame}"
                    Margin="20,-30,20,0" Padding="24">
                 <VerticalStackLayout Spacing="18">
 
-                    <Label Text="Welcome Back 👋"
+                    <Label Text="Welcome Back"
                            FontSize="22" FontAttributes="Bold"
-                           TextColor="{StaticResource TextPrimary}"/>
+                           TextColor="{AppThemeBinding Light={StaticResource TextPrimaryLight},
+                                                       Dark={StaticResource TextPrimaryDark}}"/>
 
                     <Label Text="Sign in to continue"
                            Style="{StaticResource BodyLabel}"
@@ -73,8 +75,11 @@
                     <!-- Email -->
                     <Frame Style="{StaticResource InputFrame}">
                         <Grid ColumnDefinitions="Auto,*" ColumnSpacing="10">
-                            <Label Grid.Column="0" Text="✉️"
-                                   FontSize="18" VerticalOptions="Center"/>
+                            <Label Grid.Column="0" Text="Email"
+                                   FontSize="11" FontAttributes="Bold"
+                                   TextColor="{AppThemeBinding Light={StaticResource TextMutedLight},
+                                                               Dark={StaticResource TextMutedDark}}"
+                                   VerticalOptions="Center"/>
                             <Entry Grid.Column="1"
                                    x:Name="EmailEntry"
                                    Placeholder="University Email"
@@ -86,8 +91,11 @@
                     <!-- Password -->
                     <Frame Style="{StaticResource InputFrame}">
                         <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="10">
-                            <Label Grid.Column="0" Text="🔒"
-                                   FontSize="18" VerticalOptions="Center"/>
+                            <Label Grid.Column="0" Text="Pass"
+                                   FontSize="11" FontAttributes="Bold"
+                                   TextColor="{AppThemeBinding Light={StaticResource TextMutedLight},
+                                                               Dark={StaticResource TextMutedDark}}"
+                                   VerticalOptions="Center"/>
                             <Entry Grid.Column="1"
                                    x:Name="PasswordEntry"
                                    Placeholder="Password"
@@ -95,8 +103,9 @@
                                    Style="{StaticResource InputEntry}"/>
                             <Label Grid.Column="2"
                                    x:Name="TogglePasswordLabel"
-                                   Text="👁"
-                                   FontSize="18"
+                                   Text="Show"
+                                   FontSize="12"
+                                   TextColor="{StaticResource PrimaryColor}"
                                    VerticalOptions="Center">
                                 <Label.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="OnTogglePassword"/>
@@ -128,7 +137,7 @@
                 </VerticalStackLayout>
             </Frame>
 
-            <!-- ═══ REGISTER LINK ═══ -->
+            <!-- REGISTER LINK -->
             <HorizontalStackLayout HorizontalOptions="Center"
                                    Margin="0,24,0,40" Spacing="4">
                 <Label Text="Don't have an account?"

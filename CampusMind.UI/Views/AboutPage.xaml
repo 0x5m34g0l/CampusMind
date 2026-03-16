@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CampusMind.UI.Views.AboutPage"
              Shell.NavBarIsVisible="False"
-             BackgroundColor="{StaticResource BackgroundColor}">
+             BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight},
+                                               Dark={StaticResource BackgroundDark}}">
 
     <ScrollView>
         <VerticalStackLayout Spacing="0">
@@ -42,8 +43,9 @@
                            FontSize="26" FontAttributes="Bold"
                            TextColor="White" HorizontalOptions="Center"/>
                     <Label Text="Version 1.0.0"
-                           FontSize="13" TextColor="#FFFFFFAA"
-                           HorizontalOptions="Center"/>
+       FontSize="13" TextColor="#FFFFFFAA"
+       HorizontalOptions="Center"
+       Margin="0,0,0,8"/>
                 </VerticalStackLayout>
             </Grid>
 
@@ -56,20 +58,25 @@
                     <VerticalStackLayout Spacing="8">
                         <Label Text="About CampusMind"
                                FontSize="17" FontAttributes="Bold"
-                               TextColor="{StaticResource TextPrimary}"/>
+                               TextColor="{AppThemeBinding Light={StaticResource TextPrimaryLight},
+                                                           Dark={StaticResource TextPrimaryDark}}"/>
                         <Label Text="CampusMind is your AI-powered university companion, designed to help students navigate their academic journey with ease. From understanding complex topics to planning your study schedule, CampusMind is always ready to assist."
                                FontSize="14"
-                               TextColor="{StaticResource TextSecondary}"
+                               TextColor="{AppThemeBinding Light={StaticResource TextSecondaryLight},
+                                                           Dark={StaticResource TextSecondaryDark}}"
                                LineBreakMode="WordWrap"/>
                     </VerticalStackLayout>
 
-                    <BoxView Color="{StaticResource BorderColor}" HeightRequest="1"/>
+                    <BoxView Color="{AppThemeBinding Light={StaticResource BorderLight},
+                                                     Dark={StaticResource BorderDark}}"
+                             HeightRequest="1"/>
 
                     <!-- Features -->
                     <VerticalStackLayout Spacing="8">
                         <Label Text="Features"
                                FontSize="17" FontAttributes="Bold"
-                               TextColor="{StaticResource TextPrimary}"/>
+                               TextColor="{AppThemeBinding Light={StaticResource TextPrimaryLight},
+                                                           Dark={StaticResource TextPrimaryDark}}"/>
 
                         <Grid ColumnDefinitions="Auto,*" ColumnSpacing="12" Margin="0,4,0,0">
                             <Frame Grid.Column="0" WidthRequest="32" HeightRequest="32"
@@ -80,7 +87,9 @@
                                        HorizontalOptions="Center" VerticalOptions="Center"/>
                             </Frame>
                             <Label Grid.Column="1" Text="AI-powered chat assistant"
-                                   FontSize="14" TextColor="{StaticResource TextSecondary}"
+                                   FontSize="14"
+                                   TextColor="{AppThemeBinding Light={StaticResource TextSecondaryLight},
+                                                               Dark={StaticResource TextSecondaryDark}}"
                                    VerticalOptions="Center"/>
                         </Grid>
 
@@ -93,7 +102,9 @@
                                        HorizontalOptions="Center" VerticalOptions="Center"/>
                             </Frame>
                             <Label Grid.Column="1" Text="Persistent conversation memory"
-                                   FontSize="14" TextColor="{StaticResource TextSecondary}"
+                                   FontSize="14"
+                                   TextColor="{AppThemeBinding Light={StaticResource TextSecondaryLight},
+                                                               Dark={StaticResource TextSecondaryDark}}"
                                    VerticalOptions="Center"/>
                         </Grid>
 
@@ -106,33 +117,46 @@
                                        HorizontalOptions="Center" VerticalOptions="Center"/>
                             </Frame>
                             <Label Grid.Column="1" Text="University-focused AI tools (coming soon)"
-                                   FontSize="14" TextColor="{StaticResource TextSecondary}"
+                                   FontSize="14"
+                                   TextColor="{AppThemeBinding Light={StaticResource TextSecondaryLight},
+                                                               Dark={StaticResource TextSecondaryDark}}"
                                    VerticalOptions="Center"/>
                         </Grid>
 
                     </VerticalStackLayout>
 
-                    <BoxView Color="{StaticResource BorderColor}" HeightRequest="1"/>
+                    <BoxView Color="{AppThemeBinding Light={StaticResource BorderLight},
+                                                     Dark={StaticResource BorderDark}}"
+                             HeightRequest="1"/>
 
                     <!-- Tech Stack -->
                     <VerticalStackLayout Spacing="8">
                         <Label Text="Built With"
                                FontSize="17" FontAttributes="Bold"
-                               TextColor="{StaticResource TextPrimary}"/>
+                               TextColor="{AppThemeBinding Light={StaticResource TextPrimaryLight},
+                                                           Dark={StaticResource TextPrimaryDark}}"/>
                         <Label Text=".NET MAUI  |  C#  |  SQL Server  |  Entity Framework  |  OpenRouter API"
-                               FontSize="13" TextColor="{StaticResource TextMuted}"
+                               FontSize="13"
+                               TextColor="{AppThemeBinding Light={StaticResource TextMutedLight},
+                                                           Dark={StaticResource TextMutedDark}}"
                                LineBreakMode="WordWrap"/>
                     </VerticalStackLayout>
 
-                    <BoxView Color="{StaticResource BorderColor}" HeightRequest="1"/>
+                    <BoxView Color="{AppThemeBinding Light={StaticResource BorderLight},
+                                                     Dark={StaticResource BorderDark}}"
+                             HeightRequest="1"/>
 
                     <!-- Developer -->
                     <VerticalStackLayout Spacing="4" HorizontalOptions="Center">
                         <Label Text="Made with care for students"
-                               FontSize="13" TextColor="{StaticResource TextMuted}"
+                               FontSize="13"
+                               TextColor="{AppThemeBinding Light={StaticResource TextMutedLight},
+                                                           Dark={StaticResource TextMutedDark}}"
                                HorizontalOptions="Center"/>
                         <Label Text="CampusMind © 2025"
-                               FontSize="12" TextColor="{StaticResource TextMuted}"
+                               FontSize="12"
+                               TextColor="{AppThemeBinding Light={StaticResource TextMutedLight},
+                                                           Dark={StaticResource TextMutedDark}}"
                                HorizontalOptions="Center"/>
                     </VerticalStackLayout>
 

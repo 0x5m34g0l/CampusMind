@@ -2,23 +2,52 @@
 <ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
+    <!-- ===================== BRAND ===================== -->
     <Color x:Key="PrimaryColor">#4F46E5</Color>
     <Color x:Key="PrimaryDark">#3730A3</Color>
     <Color x:Key="PrimaryLight">#818CF8</Color>
     <Color x:Key="AccentColor">#F59E0B</Color>
 
-    <Color x:Key="BackgroundColor">#F8F7FF</Color>
-    <Color x:Key="SurfaceColor">#FFFFFF</Color>
-    <Color x:Key="CardColor">#FFFFFF</Color>
-
-    <Color x:Key="TextPrimary">#1E1B4B</Color>
-    <Color x:Key="TextSecondary">#6B7280</Color>
-    <Color x:Key="TextMuted">#9CA3AF</Color>
-
+    <!-- ===================== STATUS ===================== -->
     <Color x:Key="SuccessColor">#10B981</Color>
     <Color x:Key="ErrorColor">#EF4444</Color>
     <Color x:Key="WarningColor">#F59E0B</Color>
+
+    <!-- ===================== LIGHT VARIANTS ===================== -->
+    <Color x:Key="BackgroundLight">#F8F7FF</Color>
+    <Color x:Key="SurfaceLight">#FFFFFF</Color>
+    <Color x:Key="CardLight">#FFFFFF</Color>
+    <Color x:Key="TextPrimaryLight">#1E1B4B</Color>
+    <Color x:Key="TextSecondaryLight">#6B7280</Color>
+    <Color x:Key="TextMutedLight">#9CA3AF</Color>
+    <Color x:Key="BorderLight">#E5E7EB</Color>
+    <Color x:Key="TabBarInactiveLight">#9CA3AF</Color>
+    <Color x:Key="TabBarBgLight">#FFFFFF</Color>
+    <Color x:Key="InputBgLight">#F3F4F6</Color>
+
+    <!-- ===================== DARK VARIANTS ===================== -->
+    <Color x:Key="BackgroundDark">#0F0E1A</Color>
+    <Color x:Key="SurfaceDark">#1A1826</Color>
+    <Color x:Key="CardDark">#1E1C2E</Color>
+    <Color x:Key="TextPrimaryDark">#EDE9FE</Color>
+    <Color x:Key="TextSecondaryDark">#A0A0B8</Color>
+    <Color x:Key="TextMutedDark">#6B6B80</Color>
+    <Color x:Key="BorderDark">#2D2B42</Color>
+    <Color x:Key="TabBarInactiveDark">#6B6B80</Color>
+    <Color x:Key="TabBarBgDark">#1A1826</Color>
+    <Color x:Key="InputBgDark">#2A2840</Color>
+
+    <!-- ===================== LEGACY ALIASES (keeps old pages working) ===================== -->
+    <!-- These ensure any page still using the old StaticResource key names won't crash -->
+    <Color x:Key="BackgroundColor">#F8F7FF</Color>
+    <Color x:Key="SurfaceColor">#FFFFFF</Color>
+    <Color x:Key="CardColor">#FFFFFF</Color>
+    <Color x:Key="TextPrimary">#1E1B4B</Color>
+    <Color x:Key="TextSecondary">#6B7280</Color>
+    <Color x:Key="TextMuted">#9CA3AF</Color>
     <Color x:Key="BorderColor">#E5E7EB</Color>
     <Color x:Key="TabBarInactive">#9CA3AF</Color>
+    <Color x:Key="TabBarBg">#FFFFFF</Color>
+    <Color x:Key="InputBg">#F3F4F6</Color>
 
 </ResourceDictionary>

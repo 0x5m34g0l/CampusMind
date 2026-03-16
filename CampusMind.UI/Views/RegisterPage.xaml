@@ -3,12 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CampusMind.UI.Views.RegisterPage"
              Shell.NavBarIsVisible="False"
-             BackgroundColor="{StaticResource BackgroundColor}">
+             BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight},
+                                               Dark={StaticResource BackgroundDark}}">
 
     <ScrollView>
         <VerticalStackLayout Spacing="0">
 
-            <!-- ═══ HEADER ═══ -->
+            <!-- HEADER -->
             <Grid HeightRequest="230">
                 <BoxView>
                     <BoxView.Background>
@@ -19,8 +20,7 @@
                     </BoxView.Background>
                 </BoxView>
 
-                <!-- Back -->
-                <Label Text="← Back"
+                <Label Text="Back"
                        TextColor="White" FontSize="15"
                        HorizontalOptions="Start"
                        VerticalOptions="Start"
@@ -44,7 +44,7 @@
                 </VerticalStackLayout>
             </Grid>
 
-            <!-- ═══ FORM CARD ═══ -->
+            <!-- FORM CARD -->
             <Frame Style="{StaticResource CardFrame}"
                    Margin="20,-28,20,0" Padding="24">
                 <VerticalStackLayout Spacing="16">
@@ -52,8 +52,11 @@
                     <!-- Full Name -->
                     <Frame Style="{StaticResource InputFrame}">
                         <Grid ColumnDefinitions="Auto,*" ColumnSpacing="10">
-                            <Label Grid.Column="0" Text="👤"
-                                   FontSize="18" VerticalOptions="Center"/>
+                            <Label Grid.Column="0" Text="Name"
+                                   FontSize="11" FontAttributes="Bold"
+                                   TextColor="{AppThemeBinding Light={StaticResource TextMutedLight},
+                                                               Dark={StaticResource TextMutedDark}}"
+                                   VerticalOptions="Center"/>
                             <Entry Grid.Column="1"
                                    x:Name="NameEntry"
                                    Placeholder="Full Name"
@@ -64,8 +67,11 @@
                     <!-- Email -->
                     <Frame Style="{StaticResource InputFrame}">
                         <Grid ColumnDefinitions="Auto,*" ColumnSpacing="10">
-                            <Label Grid.Column="0" Text="✉️"
-                                   FontSize="18" VerticalOptions="Center"/>
+                            <Label Grid.Column="0" Text="Email"
+                                   FontSize="11" FontAttributes="Bold"
+                                   TextColor="{AppThemeBinding Light={StaticResource TextMutedLight},
+                                                               Dark={StaticResource TextMutedDark}}"
+                                   VerticalOptions="Center"/>
                             <Entry Grid.Column="1"
                                    x:Name="EmailEntry"
                                    Placeholder="University Email"
@@ -77,8 +83,11 @@
                     <!-- Password -->
                     <Frame Style="{StaticResource InputFrame}">
                         <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="10">
-                            <Label Grid.Column="0" Text="🔒"
-                                   FontSize="18" VerticalOptions="Center"/>
+                            <Label Grid.Column="0" Text="Pass"
+                                   FontSize="11" FontAttributes="Bold"
+                                   TextColor="{AppThemeBinding Light={StaticResource TextMutedLight},
+                                                               Dark={StaticResource TextMutedDark}}"
+                                   VerticalOptions="Center"/>
                             <Entry Grid.Column="1"
                                    x:Name="PasswordEntry"
                                    Placeholder="Password"
@@ -87,7 +96,8 @@
                                    Style="{StaticResource InputEntry}"/>
                             <Label Grid.Column="2"
                                    x:Name="TogglePasswordLabel"
-                                   Text="👁" FontSize="18"
+                                   Text="Show" FontSize="12"
+                                   TextColor="{StaticResource PrimaryColor}"
                                    VerticalOptions="Center">
                                 <Label.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="OnTogglePassword"/>
@@ -101,16 +111,20 @@
                         <Grid ColumnDefinitions="*,*,*,*" ColumnSpacing="4">
                             <BoxView x:Name="StrengthBar1" Grid.Column="0"
                                      HeightRequest="4" CornerRadius="2"
-                                     Color="#E5E7EB"/>
+                                     Color="{AppThemeBinding Light={StaticResource BorderLight},
+                                                             Dark={StaticResource BorderDark}}"/>
                             <BoxView x:Name="StrengthBar2" Grid.Column="1"
                                      HeightRequest="4" CornerRadius="2"
-                                     Color="#E5E7EB"/>
+                                     Color="{AppThemeBinding Light={StaticResource BorderLight},
+                                                             Dark={StaticResource BorderDark}}"/>
                             <BoxView x:Name="StrengthBar3" Grid.Column="2"
                                      HeightRequest="4" CornerRadius="2"
-                                     Color="#E5E7EB"/>
+                                     Color="{AppThemeBinding Light={StaticResource BorderLight},
+                                                             Dark={StaticResource BorderDark}}"/>
                             <BoxView x:Name="StrengthBar4" Grid.Column="3"
                                      HeightRequest="4" CornerRadius="2"
-                                     Color="#E5E7EB"/>
+                                     Color="{AppThemeBinding Light={StaticResource BorderLight},
+                                                             Dark={StaticResource BorderDark}}"/>
                         </Grid>
                         <Label x:Name="StrengthLabel"
                                Text="Password strength"
@@ -121,8 +135,11 @@
                     <!-- Confirm Password -->
                     <Frame Style="{StaticResource InputFrame}">
                         <Grid ColumnDefinitions="Auto,*" ColumnSpacing="10">
-                            <Label Grid.Column="0" Text="🔐"
-                                   FontSize="18" VerticalOptions="Center"/>
+                            <Label Grid.Column="0" Text="Confirm"
+                                   FontSize="10" FontAttributes="Bold"
+                                   TextColor="{AppThemeBinding Light={StaticResource TextMutedLight},
+                                                               Dark={StaticResource TextMutedDark}}"
+                                   VerticalOptions="Center"/>
                             <Entry Grid.Column="1"
                                    x:Name="ConfirmPasswordEntry"
                                    Placeholder="Confirm Password"
@@ -136,7 +153,8 @@
                         <CheckBox x:Name="TermsCheckBox"
                                   Color="{StaticResource PrimaryColor}"/>
                         <Label VerticalOptions="Center" FontSize="13"
-                               TextColor="{StaticResource TextSecondary}">
+                               TextColor="{AppThemeBinding Light={StaticResource TextSecondaryLight},
+                                                           Dark={StaticResource TextSecondaryDark}}">
                             <Label.FormattedText>
                                 <FormattedString>
                                     <Span Text="I agree to the "/>

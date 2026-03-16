@@ -12,7 +12,11 @@ namespace CampusMind.UI.Views
         protected override void OnAppearing()
         {
             base.OnAppearing();
+
             LoadProfile();
+
+            DarkModeSwitch.IsToggled =
+                Application.Current.UserAppTheme == AppTheme.Dark;
         }
 
         private void LoadProfile()
@@ -56,5 +60,12 @@ namespace CampusMind.UI.Views
 
         private async void OnNewChatTapped(object sender, EventArgs e)
             => await Shell.Current.GoToAsync("//ChatPage");
+
+        // NEW: Dark mode for the whole app
+        private void OnDarkModeToggled(object sender, ToggledEventArgs e)
+        {
+            Application.Current.UserAppTheme = e.Value ? AppTheme.Dark : AppTheme.Light;
+            Preferences.Default.Set("IsDarkMode", e.Value);
+        }
     }
 }

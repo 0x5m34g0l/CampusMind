@@ -3,14 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CampusMind.UI.Views.HomePage"
              Shell.NavBarIsVisible="False"
-             BackgroundColor="{StaticResource BackgroundColor}">
+             BackgroundColor="{AppThemeBinding Light={StaticResource BackgroundLight},
+                                               Dark={StaticResource BackgroundDark}}">
 
     <Grid RowDefinitions="*,70">
 
         <ScrollView Grid.Row="0">
             <VerticalStackLayout Spacing="0">
 
-                <!-- ═══ HEADER ═══ -->
+                <!-- HEADER -->
                 <Grid HeightRequest="195" Padding="20,50,20,20">
                     <Grid.Background>
                         <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
@@ -20,12 +21,10 @@
                     </Grid.Background>
 
                     <Grid ColumnDefinitions="*,Auto">
-
-                        <!-- Greeting -->
                         <VerticalStackLayout Grid.Column="0"
                                              VerticalOptions="Center" Spacing="3">
                             <Label x:Name="GreetingLabel"
-                                   Text="Good Morning 👋"
+                                   Text="Good Morning"
                                    FontSize="13" TextColor="#FFFFFFCC"/>
                             <Label x:Name="UserNameLabel"
                                    Text=""
@@ -35,7 +34,6 @@
                                    FontSize="13" TextColor="#FFFFFFAA"/>
                         </VerticalStackLayout>
 
-                        <!-- Avatar Initials -->
                         <Frame Grid.Column="1"
                                WidthRequest="52" HeightRequest="52"
                                CornerRadius="26"
@@ -54,34 +52,43 @@
                     </Grid>
                 </Grid>
 
-                <!-- ═══ STATS CARD ═══ -->
+                <!-- STATS CARD -->
                 <Frame Style="{StaticResource CardFrame}"
                        Margin="20,-28,20,0">
                     <Grid ColumnDefinitions="*,1,*,1,*">
 
                         <VerticalStackLayout Grid.Column="0"
                                              HorizontalOptions="Center" Spacing="4">
-                            <Label Text="💬" FontSize="22" HorizontalOptions="Center"/>
+                            <Label Text="Chats" FontSize="11"
+                                   TextColor="{AppThemeBinding Light={StaticResource TextMutedLight},
+                                                               Dark={StaticResource TextMutedDark}}"
+                                   HorizontalOptions="Center"/>
                             <Label x:Name="ConversationsCountLabel"
                                    Text="0"
                                    FontSize="20" FontAttributes="Bold"
-                                   TextColor="{StaticResource TextPrimary}"
+                                   TextColor="{AppThemeBinding Light={StaticResource TextPrimaryLight},
+                                                               Dark={StaticResource TextPrimaryDark}}"
                                    HorizontalOptions="Center"/>
-                            <Label Text="Chats"
+                            <Label Text="Total"
                                    Style="{StaticResource CaptionLabel}"
                                    HorizontalOptions="Center"/>
                         </VerticalStackLayout>
 
                         <BoxView Grid.Column="1"
-                                 Color="{StaticResource BorderColor}"
+                                 Color="{AppThemeBinding Light={StaticResource BorderLight},
+                                                         Dark={StaticResource BorderDark}}"
                                  WidthRequest="1"/>
 
                         <VerticalStackLayout Grid.Column="2"
                                              HorizontalOptions="Center" Spacing="4">
-                            <Label Text="⭐" FontSize="22" HorizontalOptions="Center"/>
+                            <Label Text="Stars" FontSize="11"
+                                   TextColor="{AppThemeBinding Light={StaticResource TextMutedLight},
+                                                               Dark={StaticResource TextMutedDark}}"
+                                   HorizontalOptions="Center"/>
                             <Label Text="4.9"
                                    FontSize="20" FontAttributes="Bold"
-                                   TextColor="{StaticResource TextPrimary}"
+                                   TextColor="{AppThemeBinding Light={StaticResource TextPrimaryLight},
+                                                               Dark={StaticResource TextPrimaryDark}}"
                                    HorizontalOptions="Center"/>
                             <Label Text="Rating"
                                    Style="{StaticResource CaptionLabel}"
@@ -89,15 +96,20 @@
                         </VerticalStackLayout>
 
                         <BoxView Grid.Column="3"
-                                 Color="{StaticResource BorderColor}"
+                                 Color="{AppThemeBinding Light={StaticResource BorderLight},
+                                                         Dark={StaticResource BorderDark}}"
                                  WidthRequest="1"/>
 
                         <VerticalStackLayout Grid.Column="4"
                                              HorizontalOptions="Center" Spacing="4">
-                            <Label Text="📚" FontSize="22" HorizontalOptions="Center"/>
+                            <Label Text="Docs" FontSize="11"
+                                   TextColor="{AppThemeBinding Light={StaticResource TextMutedLight},
+                                                               Dark={StaticResource TextMutedDark}}"
+                                   HorizontalOptions="Center"/>
                             <Label Text="4"
                                    FontSize="20" FontAttributes="Bold"
-                                   TextColor="{StaticResource TextPrimary}"
+                                   TextColor="{AppThemeBinding Light={StaticResource TextPrimaryLight},
+                                                               Dark={StaticResource TextPrimaryDark}}"
                                    HorizontalOptions="Center"/>
                             <Label Text="Tools"
                                    Style="{StaticResource CaptionLabel}"
@@ -107,7 +119,7 @@
                     </Grid>
                 </Frame>
 
-                <!-- ═══ AI TOOLS GRID ═══ -->
+                <!-- AI TOOLS GRID -->
                 <VerticalStackLayout Margin="20,24,20,0" Spacing="14">
                     <Label Text="AI Tools" Style="{StaticResource SectionHeader}"/>
 
@@ -129,10 +141,12 @@
                                 <TapGestureRecognizer Tapped="OnCourseExplainerTapped"/>
                             </Frame.GestureRecognizers>
                             <VerticalStackLayout Spacing="8">
-                                <Label Text="🧠" FontSize="28"/>
+                                <Label Text="Brain" FontSize="22" FontAttributes="Bold"
+                                       TextColor="#4F46E5"/>
                                 <Label Text="Course Explainer"
                                        FontSize="14" FontAttributes="Bold"
-                                       TextColor="{StaticResource TextPrimary}"/>
+                                       TextColor="{AppThemeBinding Light={StaticResource TextPrimaryLight},
+                                                                   Dark={StaticResource TextPrimaryDark}}"/>
                                 <Label Text="Understand any topic"
                                        Style="{StaticResource CaptionLabel}"/>
                             </VerticalStackLayout>
@@ -152,10 +166,12 @@
                                 <TapGestureRecognizer Tapped="OnPolicyAssistantTapped"/>
                             </Frame.GestureRecognizers>
                             <VerticalStackLayout Spacing="8">
-                                <Label Text="📜" FontSize="28"/>
+                                <Label Text="Policy" FontSize="14" FontAttributes="Bold"
+                                       TextColor="#F59E0B"/>
                                 <Label Text="Policy Assistant"
                                        FontSize="14" FontAttributes="Bold"
-                                       TextColor="{StaticResource TextPrimary}"/>
+                                       TextColor="{AppThemeBinding Light={StaticResource TextPrimaryLight},
+                                                                   Dark={StaticResource TextPrimaryDark}}"/>
                                 <Label Text="University policies"
                                        Style="{StaticResource CaptionLabel}"/>
                             </VerticalStackLayout>
@@ -175,10 +191,12 @@
                                 <TapGestureRecognizer Tapped="OnStudyPlannerTapped"/>
                             </Frame.GestureRecognizers>
                             <VerticalStackLayout Spacing="8">
-                                <Label Text="🗓" FontSize="28"/>
+                                <Label Text="Planner" FontSize="12" FontAttributes="Bold"
+                                       TextColor="#10B981"/>
                                 <Label Text="Study Planner"
                                        FontSize="14" FontAttributes="Bold"
-                                       TextColor="{StaticResource TextPrimary}"/>
+                                       TextColor="{AppThemeBinding Light={StaticResource TextPrimaryLight},
+                                                                   Dark={StaticResource TextPrimaryDark}}"/>
                                 <Label Text="Plan your schedule"
                                        Style="{StaticResource CaptionLabel}"/>
                             </VerticalStackLayout>
@@ -198,10 +216,12 @@
                                 <TapGestureRecognizer Tapped="OnFileConverterTapped"/>
                             </Frame.GestureRecognizers>
                             <VerticalStackLayout Spacing="8">
-                                <Label Text="📂" FontSize="28"/>
+                                <Label Text="Files" FontSize="14" FontAttributes="Bold"
+                                       TextColor="#EF4444"/>
                                 <Label Text="File Converter"
                                        FontSize="14" FontAttributes="Bold"
-                                       TextColor="{StaticResource TextPrimary}"/>
+                                       TextColor="{AppThemeBinding Light={StaticResource TextPrimaryLight},
+                                                                   Dark={StaticResource TextPrimaryDark}}"/>
                                 <Label Text="Convert documents"
                                        Style="{StaticResource CaptionLabel}"/>
                             </VerticalStackLayout>
@@ -210,23 +230,21 @@
                     </Grid>
                 </VerticalStackLayout>
 
-                <!-- ═══ RECENT CONVERSATIONS ═══ -->
+                <!-- RECENT CONVERSATIONS -->
                 <VerticalStackLayout Margin="20,24,20,24" Spacing="14">
 
                     <Label Text="Recent Chats"
                            Style="{StaticResource SectionHeader}"/>
 
-                    <!-- Conversation List -->
                     <VerticalStackLayout x:Name="ConversationsStack" Spacing="10"/>
 
-                    <!-- Empty State -->
                     <VerticalStackLayout x:Name="EmptyStateView"
                                          HorizontalOptions="Center"
                                          Spacing="10" IsVisible="False">
-                        <Label Text="🦉" FontSize="48" HorizontalOptions="Center"/>
                         <Label Text="No conversations yet!"
                                FontSize="16" FontAttributes="Bold"
-                               TextColor="{StaticResource TextPrimary}"
+                               TextColor="{AppThemeBinding Light={StaticResource TextPrimaryLight},
+                                                           Dark={StaticResource TextPrimaryDark}}"
                                HorizontalOptions="Center"/>
                         <Label Text="Pick a tool above to get started"
                                Style="{StaticResource BodyLabel}"
@@ -238,8 +256,10 @@
             </VerticalStackLayout>
         </ScrollView>
 
-        <!-- ═══ BOTTOM TAB BAR ═══ -->
-        <Grid Grid.Row="1" BackgroundColor="White"
+        <!-- BOTTOM TAB BAR -->
+        <Grid Grid.Row="1"
+              BackgroundColor="{AppThemeBinding Light={StaticResource TabBarBgLight},
+                                                Dark={StaticResource TabBarBgDark}}"
               ColumnDefinitions="*,*,*"
               Padding="0,8,0,8">
             <Grid.Shadow>
@@ -249,7 +269,9 @@
             <!-- Home (active) -->
             <VerticalStackLayout Grid.Column="0"
                                  HorizontalOptions="Center" Spacing="3">
-                <Label Text="🏠" FontSize="22" HorizontalOptions="Center"/>
+                <Label Text="Home" FontSize="14" FontAttributes="Bold"
+                       TextColor="{StaticResource PrimaryColor}"
+                       HorizontalOptions="Center"/>
                 <Label Text="Home" FontSize="10" FontAttributes="Bold"
                        TextColor="{StaticResource PrimaryColor}"
                        HorizontalOptions="Center"/>
@@ -258,9 +280,17 @@
             <!-- Chat -->
             <VerticalStackLayout Grid.Column="1"
                                  HorizontalOptions="Center" Spacing="3">
-                <Label Text="💬" FontSize="22" HorizontalOptions="Center"/>
+                <Label Text="Chat" FontSize="14"
+                       TextColor="{AppThemeBinding Light={StaticResource TabBarInactiveLight},
+                                                    Dark={StaticResource TabBarInactiveDark}}"
+                       HorizontalOptions="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnNewChatTapped"/>
+                    </Label.GestureRecognizers>
+                </Label>
                 <Label Text="New Chat" FontSize="10"
-                       TextColor="{StaticResource TabBarInactive}"
+                       TextColor="{AppThemeBinding Light={StaticResource TabBarInactiveLight},
+                                                    Dark={StaticResource TabBarInactiveDark}}"
                        HorizontalOptions="Center">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnNewChatTapped"/>
@@ -271,9 +301,17 @@
             <!-- Settings -->
             <VerticalStackLayout Grid.Column="2"
                                  HorizontalOptions="Center" Spacing="3">
-                <Label Text="⚙️" FontSize="22" HorizontalOptions="Center"/>
+                <Label Text="Settings" FontSize="14"
+                       TextColor="{AppThemeBinding Light={StaticResource TabBarInactiveLight},
+                                                    Dark={StaticResource TabBarInactiveDark}}"
+                       HorizontalOptions="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnSettingsTapped"/>
+                    </Label.GestureRecognizers>
+                </Label>
                 <Label Text="Settings" FontSize="10"
-                       TextColor="{StaticResource TabBarInactive}"
+                       TextColor="{AppThemeBinding Light={StaticResource TabBarInactiveLight},
+                                                    Dark={StaticResource TabBarInactiveDark}}"
                        HorizontalOptions="Center">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnSettingsTapped"/>
